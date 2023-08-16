@@ -46,13 +46,13 @@ Use classical quantum chemistry software to compute the molecular wave function 
 
 The molecular Hamiltonian (H) is constructed in the second quantization formalism. It consists of kinetic energy terms for electrons and nuclei, as well as electron-electron, electron-nucleus, and nucleus-nucleus interaction terms. The Hamiltonian can be expressed as:
 
-![Molecular Hamiltonian](https://latex.codecogs.com/png.image?H%20%3D%20T%20%2B%20V_%7Bee%7D%20%2B%20V_%7En%7D%20%2B%20V_%7Ben%7D)
+![Molecular Hamiltonian](https://latex.codecogs.com/png.image?H%20%3D%20T%20%2B%20V_%7Bee%7D%20%2B%20V_%7Bnn%7D%20%2B%20V_%7Ben%7D)
 
 Where:
-- T represents the kinetic energy operator for electrons.
-- ![V_ee](https://latex.codecogs.com/png.image?V_%7Bee%7D) accounts for electron-electron repulsions.
-- ![V_nn](https://latex.codecogs.com/png.image?V_%7Bnn%7D) represents nucleus-nucleus repulsions.
-- ![V_en](https://latex.codecogs.com/png.image?V_%7Ben%7D) includes electron-nucleus interactions.
+- **T** represents the kinetic energy operator for electrons.
+- **V<sub>ee</sub>** accounts for electron-electron repulsions.
+- **V<sub>nn</sub>** represents nucleus-nucleus repulsions.
+- **V<sub>en</sub>** includes electron-nucleus interactions.
 
 ## 3. Mapping to Paulis
 
