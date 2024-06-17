@@ -7,7 +7,7 @@
 3. Create a new Conda environment named "qchem" with Python 3.8:
 
    ```
-   conda create -n qchem python=3.8
+   conda create -y -n qchem python=3.11
    ```
 
 4. Activate the "qchem" environment:

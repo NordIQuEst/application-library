@@ -1,0 +1,6 @@
+ipykernel
+numpy
+scipy
+pyscf
+qiskit
+qiskit_nature
