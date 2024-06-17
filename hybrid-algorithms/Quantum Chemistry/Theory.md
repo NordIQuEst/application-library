@@ -1,4 +1,4 @@
-# Quantum Chemistry on Quantum Computers
+# Theory: Quantum Chemistry on Quantum Computers
 
 ## Introduction
 

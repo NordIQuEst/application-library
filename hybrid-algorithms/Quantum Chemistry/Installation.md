@@ -1,4 +1,6 @@
-# Instructions to Install the Necessary Packages in a Conda Environment:
+# Installation instructions
+
+## Instructions to Install the Necessary Packages in a Conda Environment:
 
 1. Make sure you have Anaconda or Miniconda installed on your system. If not, you can download it from [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
 
@@ -19,7 +21,7 @@
 5. Install the necessary packages using `pip`:
 
    ```
-   pip install numpy scipy pyscf qiskit qiskit_nature
+   pip install -r requirements.txt
    ```
 
 6. You've now successfully installed the required packages (PySCF, Qiskit, Qiskit Nature) within the "qchem" environment.
