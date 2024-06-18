@@ -1,0 +1,76 @@
+#!/usr/bin/env python3.9
+# coding: utf-8
+
+# This code is part of Tergite
+#
+# (C) Copyright Axel Andersson 2022
+#
+# This code is licensed under the Apache License, Version 2.0. You may
+# obtain a copy of this license in the LICENSE.txt file in the root directory
+# of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.
+#
+# Any modifications or derivative works of this code must retain this
+# copyright notice, and modified files need to carry a notice indicating
+# that they have been altered from the originals.
+
+import matplotlib.pyplot as plt
+from pathlib import Path
+from PIL import Image
+from os import system
+from datetime import datetime
+from shutil import move
+import time
+import numpy as np
+
+plt.ion() # enable interactive mode
+
+folder = Path(input("Frame folder? ")).resolve()
+
+fig, ax = plt.subplots(figsize=(4.6,4.6))
+
+# show first frame, draw interactively on this image object
+im = ax.imshow(plt.imread(Path(input("First frame? ")).resolve()))
+ax.axis("off")
+
+def draw_frame(fig, ax, frame_path : Path):
+    global im
+
+    image_j = plt.imread(frame_path)
+
+    # show next frame
+    im.set_array(image_j)
+
+    fig.canvas.draw()
+    fig.canvas.flush_events()
+
+
+frames = iter( folder / f"frame{j}.jpg" for j in range(1000))
+frame = next(frames)
+
+while True:
+    wait_for_me = input(f"Draw {frame.name}? ")
+    if wait_for_me:
+        if str.lower(wait_for_me) == "exit":
+            # end program on 'exit', stop drawing
+            break
+        else:
+            # wait again on not None, also on not 'exit'
+            continue
+    try:
+        draw_frame(fig, ax, frame)
+        drew = True
+
+    # try to draw. if you can't then just ask for input again
+    except Exception as err:
+        drew = False
+    finally:
+        system("cls || clear")
+
+    if drew:
+        frame = next(frames)
+    else:
+        frame = frame
+
+
+
+plt.show()

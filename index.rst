@@ -10,19 +10,20 @@ Welcome to NordIQuEst Application Library's documentation!
 
 .. toctree::
    :maxdepth: 1
-   :caption: hybrid-algorithms
+   :caption: Hybrid Algorithms
 
-   hybrid-algorithms/QAOA/MaxCut.ipynb
+   hybrid-algorithms/QAOA/index
    hybrid-algorithms/Quantum Chemistry/index
-   hybrid-algorithms/Quantum Walk/README
-   hybrid-algorithms/VQE/vqe-h2-cirq.ipynb
-   hybrid-algorithms/VQE/vqe-h2-qiskit.ipynb
+   hybrid-algorithms/Quantum Walk/index
+   hybrid-algorithms/VQE/index
 
 .. toctree::
    :maxdepth: 1
    :caption: Real Devices
 
-   real-devices/index
+   real-devices/ex3-qal9000-demo/index
+   real-devices/intro-to-helmi-qiskit.ipynb
+
 
 .. toctree::
    :maxdepth: 1
@@ -36,6 +37,14 @@ Welcome to NordIQuEst Application Library's documentation!
    :caption: Training Material
 
    training-material/index
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Information
+
+   docs/authors.rst
+   docs/acknowledgement.rst
 
 
 Indices and tables
