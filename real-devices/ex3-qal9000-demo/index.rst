@@ -8,7 +8,6 @@ This is a demonstration done with QAL9000 and ex3 in November 2022. The demonstr
    :maxdepth: 1
 
    compute-bloch-frames.ipynb
-   compute-qmc-frames.ipynb
 
 
 Dependencies
@@ -64,5 +63,3 @@ Links
 -----
 
 - :download:`LICENSE <LICENSE.txt>`
-- :download:`demo_compute_bloch_frames.py  <demo_compute_bloch_frames.py>`
-- :download:`demo_compute_qmc_frames.py  <demo_compute_qmc_frames.py>`
