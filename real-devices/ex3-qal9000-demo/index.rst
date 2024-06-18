@@ -3,6 +3,7 @@ ex3-qal9000 Demo
 
 This is a demonstration done with QAL9000 and ex3 in November 2022. The demonstration can be viewed on youtube `here <https://www.youtube.com/watch?v=PP3F9pcZgL8>`_ . A blog post was written about the event `here <https://nordiquest.net/_posts/2022-12-13-Nordiquest_QC_Norway/>`_.
 
+Download the :download:`requirements.txt <requirements.txt>`
 
 .. toctree::
    :maxdepth: 1

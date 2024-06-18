@@ -1,6 +1,8 @@
 Quantum Chemistry
 ==================
 
+Download the :download:`requirements.txt <requirements.txt>`
+
 .. toctree::
    :maxdepth: 2
 
