@@ -1,6 +1,0 @@
-ipykernel
-qiskit
-qiskit-aer
-tergite
-tergite-qiskit-connector
-tqdm
