@@ -48,6 +48,7 @@ mathjax3_config = {
         'macros': {
             'vr': r'\vec{r}',  # no arguments
             'ket': [r'\left| #1 \right\rangle', 1],  # one argument
+            'bra': [r'\left| #1 \right\langle', 1],
             'iprod': [r'\left\langle #1 | #2 \right\rangle', 2],  # two arguments
         }
     }
