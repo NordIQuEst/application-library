@@ -3,7 +3,7 @@ copyright = "2024, NordIQuEst"
 author = "NordIQuEst"
 
 
-extensions = ["myst_nb", "sphinx.ext.mathjax"]
+extensions = ["myst_nb", "sphinx.ext.mathjax", 'sphinx_simplepdf']
 
 templates_path = ['_templates']
 exclude_patterns = [
@@ -37,6 +37,7 @@ html_static_path = ['docs/_static']
 html_theme_options = {
     "repository_url": "https://github.com/NordIQuEst/application-library",
     "use_repository_button": True,
+    "show_navbar_depth": 2,  # https://sphinx-book-theme.readthedocs.io/en/stable/sections/sidebar-primary.html#control-the-depth-of-the-left-sidebar-lists-to-expand
 }
 
 # -- MathJax options ----------------------------------------------------------

@@ -34,7 +34,7 @@ Welcome to NordIQuEst Application Library's documentation!
 
 .. toctree::
    :maxdepth: 1
-   :caption: Training Material
+   :caption: Training Material Archive
 
    training-material/index
 
@@ -45,11 +45,3 @@ Welcome to NordIQuEst Application Library's documentation!
 
    docs/authors.rst
    docs/acknowledgement.rst
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
