@@ -170,5 +170,5 @@ The results will be printed in a slurm.out file.
 
 For more examples, you can check [`job_quest_cpu.job`](job_quest_cpu.job) and [`job_quest_gpu.job`](job_quest_gpu.job).
 
-- [job_quest_spack_gpu.sh](job_quest_spack_gpu.sh)
-- [run_quest_cpu.sh](run_quest_cpu.sh)
+- [`job_quest_spack_gpu.sh`](job_quest_spack_gpu.sh)
+- [`run_quest_cpu.sh`](run_quest_cpu.sh)
