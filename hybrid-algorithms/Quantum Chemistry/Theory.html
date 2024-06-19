@@ -1,0 +1,708 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Theory: Quantum Chemistry on Quantum Computers &#8212; NordIQuEst Application Library</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_lesson.css?v=0c089442" />
+    <link rel="stylesheet" type="text/css" href="../../_static/term_role_formatting.css?v=4194e21c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/minipres.js?v=a0d29692"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'hybrid-algorithms/Quantum Chemistry/Theory';</script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Notebook example: VQE" href="VQE.html" />
+    <link rel="prev" title="Installation instructions" href="Installation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nq_logo2.png" class="logo__image only-light" alt="NordIQuEst Application Library - Home"/>
+    <script>document.write(`<img src="../../_static/nq_logo2.png" class="logo__image only-dark" alt="NordIQuEst Application Library - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Application Library</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../README.html"><strong>NordIQuEst Application Library</strong></a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html"><strong>Hybrid Algorithms</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../QAOA/index.html">Quantum Approximate Optimization Algorithm (QAOA)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../QAOA/MaxCut.html">MaxCut QAOA</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Quantum Chemistry</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Installation.html">Installation instructions</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Theory: Quantum Chemistry on Quantum Computers</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="VQE.html">Notebook example: VQE</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Quantum%20Walk/index.html">Quantum Walk</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum%20Walk/ClassicalRandomWalk.html">Classical Random Walk on a Quantum Computer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum%20Walk/QuantumRandomWalk.html">Quantum Random Walk on a Quantum Computer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../VQE/index.html">Variational Quantum Eigensolver (VQE) Tutorial</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VQE/vqe-h2-cirq.html">Cirq: Variational Quantum Eigensolver for <span class="math notranslate nohighlight">\(H_2\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VQE/vqe-h2-qiskit.html">Qiskit: Variational Quantum Eigensolver for <span class="math notranslate nohighlight">\(H_2\)</span></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../real-devices/index.html"><strong>Real Devices</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../real-devices/ex3-qal9000-demo/index.html">ex3-qal9000 Demo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../real-devices/ex3-qal9000-demo/compute-bloch-frames.html">ex3-qal9000 Demo: StateTomography on QAL9000</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../real-devices/intro-to-helmi-qiskit.html">Introduction to Helmi with Qiskit</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../simulators/index.html"><strong>Simulators</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../simulators/ex3/index.html">ex3 Simulators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../simulators/ex3/qiskit/README.html">Running Quantum programs on the Qiskit Simulator in eX3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../simulators/ex3/qsim/README.html">QSIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../simulators/ex3/QuEST/README.html">Guide of Running QuEST in eX3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../simulators/lumi/index.html">LUMI Simulators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../training-material/index.html"><strong>Training Material Archive</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../training-material/qas2022/index.html">Quantum Autumn School 2022</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../training-material/qas2022/notebooks/index.html">Notebooks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/notebooks/E1_qc-1.html"><strong>Quantum programming I</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/notebooks/E1_qc-2.html"><strong>Quantum programming II</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/notebooks/E1_qc-3.html"><strong>Quantum programming III</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/notebooks/E2_optimization.html"><strong>Use case: Optimization</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/notebooks/E2_VQE-H2.html"><strong>Use case: Quantum chemistry</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/notebooks/quito.html">Quantum software testing with Quito</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../training-material/qas2022/slides/index.html">Slides</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/slides/landscape.html">The HPC-QC landscape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/slides/qc_hardware.html">Overview of different QC hardware approaches and QC types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/slides/programming_qc.html">Introduction to high-level languages for QC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/slides/hybrid_hpc_qc.html">The hybrid HPC-QC approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/slides/software_stack_overview.html">Overview of the software stack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/slides/hybrid_algorithms.html">Hybrid classical/quantum algorithms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/slides/qc_testing.html">Quantum software testing</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../training-material/qas2023/index.html">Quantum Autumn School 2023</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../training-material/qas2023/notebooks/index.html">Notebooks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2023/notebooks/E2_VQE-H2.html">Tutorial - Quantum chemistry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2023/notebooks/intro-to-helmi-qiskit.html">Tutorial - Introduction to Helmi with qiskit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2023/notebooks/Notebook_maxcut_Qas2023.html">Tutorial - Quantum Alternating Operator Ansatz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2023/notebooks/Notebook_maxcut_Qas2023_sol.html">Solutions - Tutorial - Quantum Alternating Operator Ansatz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2023/notebooks/Qubit_Spectroscopy_Analysis.html">Tutorial - Qubit Spectroscopy Analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../training-material/qas2023/slides/index.html">Slides</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2023/slides/hpc-qc.html">HPC-QC integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2023/slides/software-stack.html">QC software stack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2023/slides/hybrid-classical-quantum.html">Hybrid Classical/Quantum Algorithms</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/authors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/acknowledgement.html">Acknowledgement</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/NordIQuEst/application-library" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/hybrid-algorithms/Quantum Chemistry/Theory.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Theory: Quantum Chemistry on Quantum Computers</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Theory: Quantum Chemistry on Quantum Computers</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-chemistry-basics">Quantum Chemistry Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#molecular-hamiltonian">Molecular Hamiltonian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-chemistry-methods">Quantum Chemistry Methods</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-computing-and-quantum-chemistry">Quantum Computing and Quantum Chemistry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-advantage">Quantum Advantage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-quantum-eigensolvers-vqe">Variational Quantum Eigensolvers (VQE)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-phase-estimation-qpe">Quantum Phase Estimation (QPE)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-chemistry-simulators">Quantum Chemistry Simulators</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-quantum-computers-can-be-advantageous">Why Quantum Computers Can Be Advantageous?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-of-quantum-chemistry-simulations">Workflow of Quantum Chemistry Simulations</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtaining-the-molecular-wavefunction">1. Obtaining the Molecular Wavefunction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-of-the-molecular-hamiltonian">2. Construction of the Molecular Hamiltonian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-to-paulis">3. Mapping to Paulis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-ansatz-ucc-or-hea">4. Introducing the Ansatz: UCC or HEA?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ucc-ansatz">UCC Ansatz:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hea-ansatz">HEA Ansatz:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtaining-the-expectation-value-via-vqe-or-qpe">5. Obtaining the Expectation Value via VQE or QPE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-quantum-eigensolver-vqe">Variational Quantum Eigensolver (VQE):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Quantum Phase Estimation (QPE):</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="theory-quantum-chemistry-on-quantum-computers">
+<h1>Theory: Quantum Chemistry on Quantum Computers<a class="headerlink" href="#theory-quantum-chemistry-on-quantum-computers" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Quantum chemistry is a field that focuses on solving complex problems related to molecular structures and chemical reactions. Traditional computational methods struggle to efficiently simulate quantum systems due to their exponential complexity. However, quantum computers offer a promising avenue for simulating quantum chemistry problems with improved efficiency. This document aims to explain the key concepts of quantum chemistry in the context of quantum computing for individuals with a background in quantum computing.</p>
+</section>
+<section id="quantum-chemistry-basics">
+<h2>Quantum Chemistry Basics<a class="headerlink" href="#quantum-chemistry-basics" title="Link to this heading">#</a></h2>
+<section id="molecular-hamiltonian">
+<h3>Molecular Hamiltonian<a class="headerlink" href="#molecular-hamiltonian" title="Link to this heading">#</a></h3>
+<p>In quantum chemistry, the behavior of a molecular system is described by a mathematical operator known as the molecular Hamiltonian (H). The Hamiltonian consists of kinetic energy terms for electrons and nuclei, as well as potential energy terms accounting for electron-electron, electron-nucleus, and nucleus-nucleus interactions. Solving the Schrödinger equation using the Hamiltonian provides insights into molecular properties.</p>
+</section>
+<section id="quantum-chemistry-methods">
+<h3>Quantum Chemistry Methods<a class="headerlink" href="#quantum-chemistry-methods" title="Link to this heading">#</a></h3>
+<p>Traditional quantum chemistry methods, such as Hartree-Fock (HF) and Density Functional Theory (DFT), employ approximations to solve the Schrödinger equation for molecular systems. While these methods are effective for many problems, they become computationally expensive for larger and more complex molecules due to their polynomial or worse scaling.</p>
+</section>
+</section>
+<section id="quantum-computing-and-quantum-chemistry">
+<h2>Quantum Computing and Quantum Chemistry<a class="headerlink" href="#quantum-computing-and-quantum-chemistry" title="Link to this heading">#</a></h2>
+<section id="quantum-advantage">
+<h3>Quantum Advantage<a class="headerlink" href="#quantum-advantage" title="Link to this heading">#</a></h3>
+<p>Quantum computers leverage qubits, the quantum analogs of classical bits, to perform calculations using quantum principles like superposition and entanglement. Quantum algorithms, such as the Quantum Phase Estimation (QPE) algorithm, can exploit these properties to efficiently solve certain problems that would be intractable for classical computers. Quantum chemistry is one such problem that holds the potential for quantum advantage.</p>
+</section>
+<section id="variational-quantum-eigensolvers-vqe">
+<h3>Variational Quantum Eigensolvers (VQE)<a class="headerlink" href="#variational-quantum-eigensolvers-vqe" title="Link to this heading">#</a></h3>
+<p>VQE is a quantum algorithm used for solving molecular Hamiltonians on quantum computers. It combines classical optimization techniques with quantum simulations. In VQE, a parameterized quantum circuit (ansatz) prepares a trial wavefunction, and the expectation value of the Hamiltonian is measured. Classical optimization adjusts the ansatz parameters iteratively to minimize the energy, yielding an estimate of the molecule’s ground-state energy.</p>
+</section>
+<section id="quantum-phase-estimation-qpe">
+<h3>Quantum Phase Estimation (QPE)<a class="headerlink" href="#quantum-phase-estimation-qpe" title="Link to this heading">#</a></h3>
+<p>QPE is a foundational quantum algorithm that can determine the eigenvalues (energies) of a unitary operator such as the molecular Hamiltonian. It achieves this by encoding the eigenvalue information into the phase of a quantum state and then extracting that phase using quantum Fourier transforms. QPE is a critical subroutine in many quantum chemistry algorithms, including VQE.</p>
+</section>
+<section id="quantum-chemistry-simulators">
+<h3>Quantum Chemistry Simulators<a class="headerlink" href="#quantum-chemistry-simulators" title="Link to this heading">#</a></h3>
+<p>Quantum chemistry simulators are software tools that run on quantum computers to emulate molecular systems’ behavior. They provide insights into molecular properties by mapping the quantum chemistry problem onto a quantum processor. While current quantum computers have limitations in terms of qubit count and error rates, they offer a promising platform for advancing quantum chemistry research.</p>
+</section>
+</section>
+<section id="why-quantum-computers-can-be-advantageous">
+<h2>Why Quantum Computers Can Be Advantageous?<a class="headerlink" href="#why-quantum-computers-can-be-advantageous" title="Link to this heading">#</a></h2>
+<p>Quantum chemistry poses significant challenges for classical computers due to the exponential complexity of simulating quantum systems. Quantum computers, by harnessing the principles of quantum mechanics, offer the potential to revolutionize quantum chemistry simulations. Algorithms like VQE and QPE pave the way for solving molecular Hamiltonians efficiently. As quantum hardware continues to advance, quantum chemistry on quantum computers holds the promise of unlocking insights into molecular properties with unprecedented speed and accuracy.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="workflow-of-quantum-chemistry-simulations">
+<h1>Workflow of Quantum Chemistry Simulations<a class="headerlink" href="#workflow-of-quantum-chemistry-simulations" title="Link to this heading">#</a></h1>
+<section id="obtaining-the-molecular-wavefunction">
+<h2>1. Obtaining the Molecular Wavefunction<a class="headerlink" href="#obtaining-the-molecular-wavefunction" title="Link to this heading">#</a></h2>
+<p>Use classical quantum chemistry software to compute the molecular wave function using the Hartree-Fock (HF) method. This provides an initial approximation to the ground state electronic configuration of the molecule.</p>
+</section>
+<section id="construction-of-the-molecular-hamiltonian">
+<h2>2. Construction of the Molecular Hamiltonian<a class="headerlink" href="#construction-of-the-molecular-hamiltonian" title="Link to this heading">#</a></h2>
+<p>The molecular Hamiltonian (H) is constructed in the second quantization formalism. It consists of kinetic energy terms for electrons and nuclei, as well as electron-electron, electron-nucleus, and nucleus-nucleus interaction terms. The Hamiltonian can be expressed as:</p>
+<p><img alt="Molecular Hamiltonian" src="https://latex.codecogs.com/png.image?H%20%3D%20T%20%2B%20V_%7Bee%7D%20%2B%20V_%7Bnn%7D%20%2B%20V_%7Ben%7D" /></p>
+<p>Where:</p>
+<ul class="simple">
+<li><p><strong>T</strong> represents the kinetic energy operator for electrons.</p></li>
+<li><p><strong>V<sub>ee</sub></strong> accounts for electron-electron repulsions.</p></li>
+<li><p><strong>V<sub>nn</sub></strong> represents nucleus-nucleus repulsions.</p></li>
+<li><p><strong>V<sub>en</sub></strong> includes electron-nucleus interactions.</p></li>
+</ul>
+</section>
+<section id="mapping-to-paulis">
+<h2>3. Mapping to Paulis<a class="headerlink" href="#mapping-to-paulis" title="Link to this heading">#</a></h2>
+<p>The next step is to map the molecular Hamiltonian to a sum of Pauli operators. This involves using the Jordan-Wigner, Bravyi-Kitaev, or other suitable transformation techniques to represent the Hamiltonian in terms of Pauli matrices (X, Y, Z) acting on qubits. The Pauli-mapped Hamiltonian can be expressed as:</p>
+<p><img alt="Pauli-Mapped Hamiltonian" src="https://latex.codecogs.com/png.image?H%20%3D%20%5Csum_i%20c_i%20%5Csigma_%7Bq_i%7D" /></p>
+<p>Where:</p>
+<ul class="simple">
+<li><p><img alt="c_i" src="https://latex.codecogs.com/png.image?c_i" /> are coefficients corresponding to different Pauli terms.</p></li>
+<li><p><img alt="q_i" src="https://latex.codecogs.com/png.image?q_i" /> are qubit indices associated with the Pauli terms.</p></li>
+</ul>
+</section>
+<section id="introducing-the-ansatz-ucc-or-hea">
+<h2>4. Introducing the Ansatz: UCC or HEA?<a class="headerlink" href="#introducing-the-ansatz-ucc-or-hea" title="Link to this heading">#</a></h2>
+<p>The ansatz is a parameterized quantum circuit that prepares a trial wavefunction to approximate the ground state of the molecular system. Two common ansatzes used in quantum chemistry are the Unitary Coupled Cluster (UCC) ansatz and the Hardware Efficient Ansatz (HEA).</p>
+<section id="ucc-ansatz">
+<h3>UCC Ansatz:<a class="headerlink" href="#ucc-ansatz" title="Link to this heading">#</a></h3>
+<p>The UCC ansatz expands the trial wavefunction using exponentials of cluster operators. It’s expressed as:</p>
+<p><img alt="UCC Ansatz" src="https://latex.codecogs.com/png.image?%7C%5Cpsi%28%5Ctheta%29%5Crangle%20%3D%20e%5E%7BT%28%5Ctheta%29%7D%7C%5Cphi%5Crangle" /></p>
+<p>Where:</p>
+<ul class="simple">
+<li><p><img alt="T(θ)" src="https://latex.codecogs.com/png.image?T%28%5Ctheta%29" /> is the cluster operator parameterized by angles <img alt="θ" src="https://latex.codecogs.com/png.image?%5Ctheta" />.</p></li>
+<li><p><img alt="|ϕ⟩" src="https://latex.codecogs.com/png.image?%7C%5Cphi%5Crangle" /> is the Hartree-Fock state.</p></li>
+</ul>
+</section>
+<section id="hea-ansatz">
+<h3>HEA Ansatz:<a class="headerlink" href="#hea-ansatz" title="Link to this heading">#</a></h3>
+<p>The HEA ansatz aims to reduce the depth and complexity of the quantum circuit. It utilizes entanglement patterns optimized for specific quantum hardware architectures. The details of the HEA structure depend on the specific implementation and hardware.</p>
+</section>
+</section>
+<section id="obtaining-the-expectation-value-via-vqe-or-qpe">
+<h2>5. Obtaining the Expectation Value via VQE or QPE<a class="headerlink" href="#obtaining-the-expectation-value-via-vqe-or-qpe" title="Link to this heading">#</a></h2>
+<section id="variational-quantum-eigensolver-vqe">
+<h3>Variational Quantum Eigensolver (VQE):<a class="headerlink" href="#variational-quantum-eigensolver-vqe" title="Link to this heading">#</a></h3>
+<p>In VQE, the expectation value of the Pauli-mapped Hamiltonian is computed using the ansatz-prepared state:</p>
+<p><img alt="VQE Expectation Value" src="https://latex.codecogs.com/png.image?E%28%5Ctheta%29%20%3D%20%5Clangle%5Cpsi%28%5Ctheta%29%7CH%7C%5Cpsi%28%5Ctheta%29%5Crangle" /></p>
+<p>Classical optimization techniques, such as gradient descent, are employed to find the ansatz parameters (<img alt="θ" src="https://latex.codecogs.com/png.image?%5Ctheta" />) that minimize the energy expectation value (<img alt="E(θ)" src="https://latex.codecogs.com/png.image?E%28%5Ctheta%29" />). The optimized energy gives an estimate of the molecule’s ground state energy.</p>
+</section>
+<section id="id1">
+<h3>Quantum Phase Estimation (QPE):<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>QPE can also be used to estimate the energy eigenvalues. By preparing a quantum state and applying QPE, the phase corresponding to the energy eigenvalue is encoded in the quantum state’s amplitudes. Measuring this phase yields an estimate of the energy eigenvalue, which corresponds to the ground state energy.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Installation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Installation instructions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="VQE.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Notebook example: VQE</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Theory: Quantum Chemistry on Quantum Computers</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-chemistry-basics">Quantum Chemistry Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#molecular-hamiltonian">Molecular Hamiltonian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-chemistry-methods">Quantum Chemistry Methods</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-computing-and-quantum-chemistry">Quantum Computing and Quantum Chemistry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-advantage">Quantum Advantage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-quantum-eigensolvers-vqe">Variational Quantum Eigensolvers (VQE)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-phase-estimation-qpe">Quantum Phase Estimation (QPE)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-chemistry-simulators">Quantum Chemistry Simulators</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-quantum-computers-can-be-advantageous">Why Quantum Computers Can Be Advantageous?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-of-quantum-chemistry-simulations">Workflow of Quantum Chemistry Simulations</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtaining-the-molecular-wavefunction">1. Obtaining the Molecular Wavefunction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-of-the-molecular-hamiltonian">2. Construction of the Molecular Hamiltonian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-to-paulis">3. Mapping to Paulis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-ansatz-ucc-or-hea">4. Introducing the Ansatz: UCC or HEA?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ucc-ansatz">UCC Ansatz:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hea-ansatz">HEA Ansatz:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtaining-the-expectation-value-via-vqe-or-qpe">5. Obtaining the Expectation Value via VQE or QPE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-quantum-eigensolver-vqe">Variational Quantum Eigensolver (VQE):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Quantum Phase Estimation (QPE):</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By NordIQuEst
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, NordIQuEst.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

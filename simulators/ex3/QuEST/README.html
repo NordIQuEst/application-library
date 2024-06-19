@@ -1,0 +1,711 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Guide of Running QuEST in eX3 &#8212; NordIQuEst Application Library</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_lesson.css?v=0c089442" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/term_role_formatting.css?v=4194e21c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=a5c4661c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/minipres.js?v=a0d29692"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'simulators/ex3/QuEST/README';</script>
+    <link rel="icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="LUMI Simulators" href="../../lumi/index.html" />
+    <link rel="prev" title="QSIM" href="../qsim/README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/nq_logo2.png" class="logo__image only-light" alt="NordIQuEst Application Library - Home"/>
+    <script>document.write(`<img src="../../../_static/nq_logo2.png" class="logo__image only-dark" alt="NordIQuEst Application Library - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Application Library</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html"><strong>NordIQuEst Application Library</strong></a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../hybrid-algorithms/index.html"><strong>Hybrid Algorithms</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../hybrid-algorithms/QAOA/index.html">Quantum Approximate Optimization Algorithm (QAOA)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../hybrid-algorithms/QAOA/MaxCut.html">MaxCut QAOA</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../hybrid-algorithms/Quantum%20Chemistry/index.html">Quantum Chemistry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../hybrid-algorithms/Quantum%20Chemistry/Installation.html">Installation instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hybrid-algorithms/Quantum%20Chemistry/Theory.html">Theory: Quantum Chemistry on Quantum Computers</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../hybrid-algorithms/Quantum%20Chemistry/VQE.html">Notebook example: VQE</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../hybrid-algorithms/Quantum%20Walk/index.html">Quantum Walk</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../hybrid-algorithms/Quantum%20Walk/ClassicalRandomWalk.html">Classical Random Walk on a Quantum Computer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hybrid-algorithms/Quantum%20Walk/QuantumRandomWalk.html">Quantum Random Walk on a Quantum Computer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../hybrid-algorithms/VQE/index.html">Variational Quantum Eigensolver (VQE) Tutorial</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../hybrid-algorithms/VQE/vqe-h2-cirq.html">Cirq: Variational Quantum Eigensolver for <span class="math notranslate nohighlight">\(H_2\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hybrid-algorithms/VQE/vqe-h2-qiskit.html">Qiskit: Variational Quantum Eigensolver for <span class="math notranslate nohighlight">\(H_2\)</span></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../real-devices/index.html"><strong>Real Devices</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../real-devices/ex3-qal9000-demo/index.html">ex3-qal9000 Demo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../real-devices/ex3-qal9000-demo/compute-bloch-frames.html">ex3-qal9000 Demo: StateTomography on QAL9000</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../real-devices/intro-to-helmi-qiskit.html">Introduction to Helmi with Qiskit</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html"><strong>Simulators</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">ex3 Simulators</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../qiskit/README.html">Running Quantum programs on the Qiskit Simulator in eX3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qsim/README.html">QSIM</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Guide of Running QuEST in eX3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lumi/index.html">LUMI Simulators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../training-material/index.html"><strong>Training Material Archive</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../training-material/qas2022/index.html">Quantum Autumn School 2022</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../training-material/qas2022/notebooks/index.html">Notebooks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2022/notebooks/E1_qc-1.html"><strong>Quantum programming I</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2022/notebooks/E1_qc-2.html"><strong>Quantum programming II</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2022/notebooks/E1_qc-3.html"><strong>Quantum programming III</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2022/notebooks/E2_optimization.html"><strong>Use case: Optimization</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2022/notebooks/E2_VQE-H2.html"><strong>Use case: Quantum chemistry</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2022/notebooks/quito.html">Quantum software testing with Quito</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../training-material/qas2022/slides/index.html">Slides</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2022/slides/landscape.html">The HPC-QC landscape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2022/slides/qc_hardware.html">Overview of different QC hardware approaches and QC types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2022/slides/programming_qc.html">Introduction to high-level languages for QC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2022/slides/hybrid_hpc_qc.html">The hybrid HPC-QC approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2022/slides/software_stack_overview.html">Overview of the software stack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2022/slides/hybrid_algorithms.html">Hybrid classical/quantum algorithms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2022/slides/qc_testing.html">Quantum software testing</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../training-material/qas2023/index.html">Quantum Autumn School 2023</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../training-material/qas2023/notebooks/index.html">Notebooks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2023/notebooks/E2_VQE-H2.html">Tutorial - Quantum chemistry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2023/notebooks/intro-to-helmi-qiskit.html">Tutorial - Introduction to Helmi with qiskit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2023/notebooks/Notebook_maxcut_Qas2023.html">Tutorial - Quantum Alternating Operator Ansatz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2023/notebooks/Notebook_maxcut_Qas2023_sol.html">Solutions - Tutorial - Quantum Alternating Operator Ansatz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2023/notebooks/Qubit_Spectroscopy_Analysis.html">Tutorial - Qubit Spectroscopy Analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../training-material/qas2023/slides/index.html">Slides</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2023/slides/hpc-qc.html">HPC-QC integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2023/slides/software-stack.html">QC software stack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../training-material/qas2023/slides/hybrid-classical-quantum.html">Hybrid Classical/Quantum Algorithms</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/authors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/acknowledgement.html">Acknowledgement</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/NordIQuEst/application-library" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/simulators/ex3/QuEST/README.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Guide of Running QuEST in eX3</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-spack">Loading Spack</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-quest">Loading QuEST</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-the-file">Compiling the file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-with-slurm-for-gpu">Run with slurm for GPU</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-with-module">Running with <code class="docutils literal notranslate"><span class="pre">module</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-quest-gpu-with-sbatch">Run QuEST GPU with sbatch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-examples">Additional examples</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="guide-of-running-quest-in-ex3">
+<h1>Guide of Running QuEST in eX3<a class="headerlink" href="#guide-of-running-quest-in-ex3" title="Link to this heading">#</a></h1>
+<section id="loading-spack">
+<h2>Loading Spack<a class="headerlink" href="#loading-spack" title="Link to this heading">#</a></h2>
+<p>Spack is used for QuEST installation in LUMI. First we need to load Spack:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">use</span> <span class="o">/</span><span class="n">cm</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">spack</span><span class="o">-</span><span class="n">modules</span><span class="o">/</span><span class="n">modulesfiles</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">spack</span><span class="o">/</span><span class="mf">0.19.2</span>
+</pre></div>
+</div>
+</section>
+<section id="loading-quest">
+<h2>Loading QuEST<a class="headerlink" href="#loading-quest" title="Link to this heading">#</a></h2>
+<p>First find which <code class="docutils literal notranslate"><span class="pre">QuEST</span></code> package do you want to load, <code class="docutils literal notranslate"><span class="pre">spack</span> <span class="pre">find</span> <span class="pre">-vl</span> <span class="pre">quest</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">linux</span><span class="o">-</span><span class="n">ubuntu18</span><span class="mf">.04</span><span class="o">-</span><span class="n">skylake_avx512</span> <span class="o">/</span> <span class="n">gcc</span><span class="o">@</span><span class="mf">8.4.0</span> <span class="o">-----------------</span>
+<span class="n">hsiv66y</span> <span class="n">quest</span><span class="o">@</span><span class="mf">3.5.0</span><span class="o">~</span><span class="n">gpu</span><span class="o">~</span><span class="n">ipo</span><span class="o">~</span><span class="n">mpi</span><span class="o">~</span><span class="n">multithread</span> <span class="n">build_system</span><span class="o">=</span><span class="n">cmake</span> <span class="n">build_type</span><span class="o">=</span><span class="n">RelWithDebInfo</span> <span class="n">precision</span><span class="o">=</span><span class="mi">1</span>
+<span class="mi">4</span><span class="n">n625o4</span> <span class="n">quest</span><span class="o">@</span><span class="mf">3.5.0</span><span class="o">~</span><span class="n">gpu</span><span class="o">~</span><span class="n">ipo</span><span class="o">~</span><span class="n">mpi</span><span class="o">~</span><span class="n">multithread</span> <span class="n">build_system</span><span class="o">=</span><span class="n">cmake</span> <span class="n">build_type</span><span class="o">=</span><span class="n">RelWithDebInfo</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">bbhnd67</span> <span class="n">quest</span><span class="o">@</span><span class="mf">3.5.0</span><span class="o">~</span><span class="n">gpu</span><span class="o">~</span><span class="n">ipo</span><span class="o">~</span><span class="n">mpi</span><span class="o">~</span><span class="n">multithread</span> <span class="n">build_system</span><span class="o">=</span><span class="n">cmake</span> <span class="n">build_type</span><span class="o">=</span><span class="n">RelWithDebInfo</span> <span class="n">precision</span><span class="o">=</span><span class="mi">4</span>
+<span class="n">kt72o53</span> <span class="n">quest</span><span class="o">@</span><span class="mf">3.5.0</span><span class="o">~</span><span class="n">gpu</span><span class="o">~</span><span class="n">ipo</span><span class="o">~</span><span class="n">mpi</span><span class="o">+</span><span class="n">multithread</span> <span class="n">build_system</span><span class="o">=</span><span class="n">cmake</span> <span class="n">build_type</span><span class="o">=</span><span class="n">RelWithDebInfo</span> <span class="n">precision</span><span class="o">=</span><span class="mi">1</span>
+<span class="mi">5</span><span class="n">s2skmp</span> <span class="n">quest</span><span class="o">@</span><span class="mf">3.5.0</span><span class="o">~</span><span class="n">gpu</span><span class="o">~</span><span class="n">ipo</span><span class="o">~</span><span class="n">mpi</span><span class="o">+</span><span class="n">multithread</span> <span class="n">build_system</span><span class="o">=</span><span class="n">cmake</span> <span class="n">build_type</span><span class="o">=</span><span class="n">RelWithDebInfo</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span>
+<span class="mi">33</span><span class="n">fqt2c</span> <span class="n">quest</span><span class="o">@</span><span class="mf">3.5.0</span><span class="o">~</span><span class="n">gpu</span><span class="o">~</span><span class="n">ipo</span><span class="o">~</span><span class="n">mpi</span><span class="o">+</span><span class="n">multithread</span> <span class="n">build_system</span><span class="o">=</span><span class="n">cmake</span> <span class="n">build_type</span><span class="o">=</span><span class="n">RelWithDebInfo</span> <span class="n">precision</span><span class="o">=</span><span class="mi">4</span>
+<span class="mi">2</span><span class="n">qabssi</span> <span class="n">quest</span><span class="o">@</span><span class="mf">3.5.0</span><span class="o">~</span><span class="n">gpu</span><span class="o">~</span><span class="n">ipo</span><span class="o">+</span><span class="n">mpi</span><span class="o">+</span><span class="n">multithread</span> <span class="n">build_system</span><span class="o">=</span><span class="n">cmake</span> <span class="n">build_type</span><span class="o">=</span><span class="n">RelWithDebInfo</span> <span class="n">precision</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">joeqfso</span> <span class="n">quest</span><span class="o">@</span><span class="mf">3.5.0</span><span class="o">~</span><span class="n">gpu</span><span class="o">~</span><span class="n">ipo</span><span class="o">+</span><span class="n">mpi</span><span class="o">+</span><span class="n">multithread</span> <span class="n">build_system</span><span class="o">=</span><span class="n">cmake</span> <span class="n">build_type</span><span class="o">=</span><span class="n">RelWithDebInfo</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">neueo37</span> <span class="n">quest</span><span class="o">@</span><span class="mf">3.5.0</span><span class="o">~</span><span class="n">gpu</span><span class="o">~</span><span class="n">ipo</span><span class="o">+</span><span class="n">mpi</span><span class="o">+</span><span class="n">multithread</span> <span class="n">build_system</span><span class="o">=</span><span class="n">cmake</span> <span class="n">build_type</span><span class="o">=</span><span class="n">RelWithDebInfo</span> <span class="n">precision</span><span class="o">=</span><span class="mi">4</span>
+<span class="n">y7cfly2</span> <span class="n">quest</span><span class="o">@</span><span class="mf">3.5.0</span><span class="o">+</span><span class="n">gpu</span><span class="o">~</span><span class="n">ipo</span><span class="o">~</span><span class="n">mpi</span><span class="o">~</span><span class="n">multithread</span> <span class="n">build_system</span><span class="o">=</span><span class="n">cmake</span> <span class="n">build_type</span><span class="o">=</span><span class="n">RelWithDebInfo</span> <span class="n">gpu_capability</span><span class="o">=</span><span class="mi">70</span> <span class="n">precision</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">lifs72m</span> <span class="n">quest</span><span class="o">@</span><span class="mf">3.5.0</span><span class="o">+</span><span class="n">gpu</span><span class="o">~</span><span class="n">ipo</span><span class="o">~</span><span class="n">mpi</span><span class="o">~</span><span class="n">multithread</span> <span class="n">build_system</span><span class="o">=</span><span class="n">cmake</span> <span class="n">build_type</span><span class="o">=</span><span class="n">RelWithDebInfo</span> <span class="n">gpu_capability</span><span class="o">=</span><span class="mi">70</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>There are two options how to load <code class="docutils literal notranslate"><span class="pre">QuEST</span></code> here:</p>
+<ul class="simple">
+<li><p>with the hash tag</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spack</span> <span class="n">load</span> <span class="o">/</span><span class="n">hsiv66y</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>with the variants</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spack</span> <span class="n">load</span> <span class="n">quest</span> <span class="o">~</span><span class="n">gpu</span><span class="o">~</span><span class="n">ipo</span><span class="o">~</span><span class="n">mpi</span><span class="o">~</span><span class="n">multithread</span> <span class="n">precision</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>After loading <code class="docutils literal notranslate"><span class="pre">QuEST</span></code>, we need to run the script to set up the variables</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span> <span class="n">load_QuEST</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>It will give this output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">QuEST</span> <span class="n">loaded</span> <span class="o">...</span>
+<span class="n">QuEST_INCLUDE_DIR</span><span class="p">:</span><span class="o">/</span><span class="n">cm</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">spack</span><span class="o">-</span><span class="n">modules</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">linux</span><span class="o">-</span><span class="n">ubuntu18</span><span class="mf">.04</span><span class="o">-</span><span class="n">skylake_avx512</span><span class="o">/</span><span class="n">gcc</span><span class="o">-</span><span class="mf">8.4.0</span><span class="o">/</span><span class="n">quest</span><span class="o">-</span><span class="mf">3.5.0</span><span class="o">-</span><span class="n">hsiv66yqgmi2oumoa2mj5akjcl5vegwx</span><span class="o">/</span><span class="n">include</span>
+<span class="n">QuEST_LIBRARY_PATH</span><span class="p">:</span><span class="o">/</span><span class="n">cm</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">spack</span><span class="o">-</span><span class="n">modules</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">linux</span><span class="o">-</span><span class="n">ubuntu18</span><span class="mf">.04</span><span class="o">-</span><span class="n">skylake_avx512</span><span class="o">/</span><span class="n">gcc</span><span class="o">-</span><span class="mf">8.4.0</span><span class="o">/</span><span class="n">quest</span><span class="o">-</span><span class="mf">3.5.0</span><span class="o">-</span><span class="n">hsiv66yqgmi2oumoa2mj5akjcl5vegwx</span><span class="o">/</span><span class="n">lib</span>
+<span class="n">QuEST_PREC</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</section>
+<section id="compiling-the-file">
+<h2>Compiling the file<a class="headerlink" href="#compiling-the-file" title="Link to this heading">#</a></h2>
+<p>Once loaded, we can compile the <code class="docutils literal notranslate"><span class="pre">file.c</span></code> that we want to run in QuEST. For example,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cc -o bernstein -I $QuEST_INCLUDE_DIR -L $QuEST_LIBRARY_PATH  bernstein_vazirani_circuit.c -lQuEST -lm -DQuEST_PREC=$QuEST_PREC
+</pre></div>
+</div>
+<p>After that, we can just run the output <code class="docutils literal notranslate"><span class="pre">./bernstein</span></code> to get the result.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">success</span> <span class="n">probability</span><span class="p">:</span> <span class="mf">0.99999976</span>
+</pre></div>
+</div>
+</section>
+<section id="run-with-slurm-for-gpu">
+<h2>Run with slurm for GPU<a class="headerlink" href="#run-with-slurm-for-gpu" title="Link to this heading">#</a></h2>
+<p>This is the example for running the GPU with slurm</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
+#SBATCH --job-name=&quot;QuEST Spack GPU&quot;
+#SBATCH --time=00:10:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mail-user=handy.kurniawan@ut.ee
+#SBATCH --mail-type=END
+#SBATCH --partition=dgx2q
+##SBATCH -o output/dgx2q/slurm.%N.%j.out # STDOUT
+##SBATCH -e output/dgx2q/slurm.%N.%j.err # STDERR
+
+ulimit -s 10240
+#mkdir -p ~/output/dgx2q
+
+module purge
+module load slurm/slurm/21.08.8
+module use /cm/shared/spack-modules/modulesfiles
+module load spack/0.19.2
+
+spack load quest +gpu~ipo~mpi~multithread build_system=cmake build_type=RelWithDebInfo gpu_capability=70 precision=1
+
+. load_QuEST.sh
+
+cc -o example -I $QuEST_INCLUDE_DIR -L $QuEST_LIBRARY_PATH example.c -lQuEST -lm -DQuEST_PREC=$QuEST_PREC
+./gpu_example_32
+
+</pre></div>
+</div>
+</section>
+<section id="running-with-module">
+<h2>Running with <code class="docutils literal notranslate"><span class="pre">module</span></code><a class="headerlink" href="#running-with-module" title="Link to this heading">#</a></h2>
+<p>To load QuEST module, first we need to run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">use</span> <span class="o">/</span><span class="n">cm</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">ex3</span><span class="o">-</span><span class="n">qc</span><span class="o">-</span><span class="n">modules</span><span class="o">/</span><span class="n">modulefiles</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>Then, choose which QuEST packages do you want to use. You can check by running <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">av</span> <span class="pre">QuEST</span></code>. Then this list will come out</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">QuEST</span><span class="o">-</span><span class="n">kit</span><span class="o">/</span><span class="n">libQuEST</span><span class="o">/</span><span class="mf">3.5.0</span><span class="o">/</span><span class="n">omp</span><span class="o">+</span><span class="n">fp32</span>   <span class="n">QuEST</span><span class="o">-</span><span class="n">kit</span><span class="o">/</span><span class="n">libQuEST</span><span class="o">/</span><span class="mf">3.5.0</span><span class="o">/</span><span class="n">omp</span><span class="o">+</span><span class="n">mpi</span><span class="o">+</span><span class="n">fp32</span>   <span class="n">QuEST</span><span class="o">-</span><span class="n">kit</span><span class="o">/</span><span class="n">libQuEST</span><span class="o">/</span><span class="mf">3.5.0</span><span class="o">/</span><span class="n">pthreaded</span><span class="o">+</span><span class="n">cu118</span><span class="o">+</span><span class="n">fp32</span>  <span class="n">QuEST</span><span class="o">-</span><span class="n">kit</span><span class="o">/</span><span class="n">libQuEST</span><span class="o">/</span><span class="mf">3.5.0</span><span class="o">/</span><span class="n">st</span><span class="o">+</span><span class="n">fp64</span>
+<span class="n">QuEST</span><span class="o">-</span><span class="n">kit</span><span class="o">/</span><span class="n">libQuEST</span><span class="o">/</span><span class="mf">3.5.0</span><span class="o">/</span><span class="n">omp</span><span class="o">+</span><span class="n">fp64</span>   <span class="n">QuEST</span><span class="o">-</span><span class="n">kit</span><span class="o">/</span><span class="n">libQuEST</span><span class="o">/</span><span class="mf">3.5.0</span><span class="o">/</span><span class="n">omp</span><span class="o">+</span><span class="n">mpi</span><span class="o">+</span><span class="n">fp64</span>   <span class="n">QuEST</span><span class="o">-</span><span class="n">kit</span><span class="o">/</span><span class="n">libQuEST</span><span class="o">/</span><span class="mf">3.5.0</span><span class="o">/</span><span class="n">pthreaded</span><span class="o">+</span><span class="n">cu118</span><span class="o">+</span><span class="n">fp64</span>  <span class="n">QuEST</span><span class="o">-</span><span class="n">kit</span><span class="o">/</span><span class="n">libQuEST</span><span class="o">/</span><span class="mf">3.5.0</span><span class="o">/</span><span class="n">st</span><span class="o">+</span><span class="n">fp128</span>
+<span class="n">QuEST</span><span class="o">-</span><span class="n">kit</span><span class="o">/</span><span class="n">libQuEST</span><span class="o">/</span><span class="mf">3.5.0</span><span class="o">/</span><span class="n">omp</span><span class="o">+</span><span class="n">fp128</span>  <span class="n">QuEST</span><span class="o">-</span><span class="n">kit</span><span class="o">/</span><span class="n">libQuEST</span><span class="o">/</span><span class="mf">3.5.0</span><span class="o">/</span><span class="n">omp</span><span class="o">+</span><span class="n">mpi</span><span class="o">+</span><span class="n">fp128</span>  <span class="n">QuEST</span><span class="o">-</span><span class="n">kit</span><span class="o">/</span><span class="n">libQuEST</span><span class="o">/</span><span class="mf">3.5.0</span><span class="o">/</span><span class="n">st</span><span class="o">+</span><span class="n">fp32</span>
+</pre></div>
+</div>
+<p>omp = multithreaded, mpi = distributed, fp = precision [1, 2, 4], cu118 = cuda</p>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">QuEST-kit/libQuEST/3.5.0/omp+mpi+fp64</span></code>,
+this is a QuEST library with multithreaded, distributed and precision=2.</p>
+<p>Once loaded, we can compile the <code class="docutils literal notranslate"><span class="pre">file.c</span></code> that we want to run in QuEST. For example,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cc</span> <span class="o">-</span><span class="n">o</span> <span class="n">bernstein</span> <span class="n">bernstein_vazirani_circuit</span><span class="o">.</span><span class="n">c</span> <span class="o">-</span><span class="n">lQuEST</span> <span class="o">-</span><span class="n">lm</span> <span class="o">-</span><span class="n">DQuEST_PREC</span><span class="o">=</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>After that, we can just run the output <code class="docutils literal notranslate"><span class="pre">./bernstein</span></code> to get the result.</p>
+<section id="run-quest-gpu-with-sbatch">
+<h3>Run QuEST GPU with sbatch<a class="headerlink" href="#run-quest-gpu-with-sbatch" title="Link to this heading">#</a></h3>
+<p>To run with GPU, we need to create a <code class="docutils literal notranslate"><span class="pre">test_gpu.job</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=&quot;QuEST Spack GPU&quot;</span>
+<span class="c1">#SBATCH --time=00:10:00</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --ntasks-per-node=1</span>
+<span class="c1">#SBATCH --mail-user=handy.kurniawan@ut.ee</span>
+<span class="c1">#SBATCH --mail-type=END</span>
+<span class="c1">#SBATCH --partition=a100q</span>
+
+
+<span class="n">module</span> <span class="n">load</span> <span class="n">QuEST</span><span class="o">-</span><span class="n">kit</span><span class="o">/</span><span class="n">libQuEST</span><span class="o">/</span><span class="mf">3.5.0</span><span class="o">/</span><span class="n">pthreaded</span><span class="o">+</span><span class="n">cu118</span><span class="o">+</span><span class="n">fp32</span>
+
+<span class="n">cc</span> <span class="o">-</span><span class="n">o</span> <span class="n">gpu_example_32</span> <span class="n">tutorial_example</span><span class="o">.</span><span class="n">c</span> <span class="o">-</span><span class="n">lQuEST</span> <span class="o">-</span><span class="n">lm</span> <span class="o">-</span><span class="n">DQuEST_PREC</span><span class="o">=</span><span class="mi">1</span>
+<span class="o">./</span><span class="n">gpu_example_32</span>
+
+<span class="n">cc</span> <span class="o">-</span><span class="n">o</span> <span class="n">gpu_grover_32</span> <span class="n">grovers_search</span><span class="o">.</span><span class="n">c</span> <span class="o">-</span><span class="n">lQuEST</span> <span class="o">-</span><span class="n">lm</span> <span class="o">-</span><span class="n">DQuEST_PREC</span><span class="o">=</span><span class="mi">1</span>
+<span class="o">./</span><span class="n">gpu_grover_32</span>
+
+<span class="n">cc</span> <span class="o">-</span><span class="n">o</span> <span class="n">gpu_bernstein_32</span> <span class="n">bernstein_vazirani_circuit</span><span class="o">.</span><span class="n">c</span> <span class="o">-</span><span class="n">lQuEST</span> <span class="o">-</span><span class="n">lm</span> <span class="o">-</span><span class="n">DQuEST_PREC</span><span class="o">=</span><span class="mi">1</span>
+<span class="o">./</span><span class="n">gpu_bernstein_32</span>
+</pre></div>
+</div>
+<p>We can run this sbatch file with command</p>
+<p><code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">test_gpu.job</span></code></p>
+<p>The results will be printed in a slurm.out file.</p>
+</section>
+<section id="additional-examples">
+<h3>Additional examples<a class="headerlink" href="#additional-examples" title="Link to this heading">#</a></h3>
+<p>For more examples, you can check <a class="reference download internal" download="" href="../../../_downloads/535e78016548c2e02d7761ceca86e822/job_quest_cpu.job"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">job_quest_cpu.job</span></code></span></a> and <a class="reference download internal" download="" href="../../../_downloads/3ee114a9bf949f7177daf5056341b467/job_quest_gpu.job"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">job_quest_gpu.job</span></code></span></a>.</p>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../../../_downloads/da88dd14770d6deb3b613f19768c9d2f/job_quest_spack_gpu.sh"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">job_quest_spack_gpu.sh</span></code></span></a></p></li>
+<li><p><a class="reference download internal" download="" href="../../../_downloads/40cd6df299ed2ed1679d5f376cf3190e/run_quest_cpu.sh"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">run_quest_cpu.sh</span></code></span></a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../qsim/README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">QSIM</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../lumi/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">LUMI Simulators</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-spack">Loading Spack</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-quest">Loading QuEST</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-the-file">Compiling the file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-with-slurm-for-gpu">Run with slurm for GPU</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-with-module">Running with <code class="docutils literal notranslate"><span class="pre">module</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-quest-gpu-with-sbatch">Run QuEST GPU with sbatch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-examples">Additional examples</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By NordIQuEst
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, NordIQuEst.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

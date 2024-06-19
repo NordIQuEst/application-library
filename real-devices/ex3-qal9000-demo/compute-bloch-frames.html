@@ -1,0 +1,781 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ex3-qal9000 Demo: StateTomography on QAL9000 &#8212; NordIQuEst Application Library</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_lesson.css?v=0c089442" />
+    <link rel="stylesheet" type="text/css" href="../../_static/term_role_formatting.css?v=4194e21c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/minipres.js?v=a0d29692"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'real-devices/ex3-qal9000-demo/compute-bloch-frames';</script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Introduction to Helmi with Qiskit" href="../intro-to-helmi-qiskit.html" />
+    <link rel="prev" title="ex3-qal9000 Demo" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nq_logo2.png" class="logo__image only-light" alt="NordIQuEst Application Library - Home"/>
+    <script>document.write(`<img src="../../_static/nq_logo2.png" class="logo__image only-dark" alt="NordIQuEst Application Library - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Application Library</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../README.html"><strong>NordIQuEst Application Library</strong></a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../hybrid-algorithms/index.html"><strong>Hybrid Algorithms</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hybrid-algorithms/QAOA/index.html">Quantum Approximate Optimization Algorithm (QAOA)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hybrid-algorithms/QAOA/MaxCut.html">MaxCut QAOA</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hybrid-algorithms/Quantum%20Chemistry/index.html">Quantum Chemistry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hybrid-algorithms/Quantum%20Chemistry/Installation.html">Installation instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hybrid-algorithms/Quantum%20Chemistry/Theory.html">Theory: Quantum Chemistry on Quantum Computers</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../hybrid-algorithms/Quantum%20Chemistry/VQE.html">Notebook example: VQE</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hybrid-algorithms/Quantum%20Walk/index.html">Quantum Walk</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hybrid-algorithms/Quantum%20Walk/ClassicalRandomWalk.html">Classical Random Walk on a Quantum Computer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hybrid-algorithms/Quantum%20Walk/QuantumRandomWalk.html">Quantum Random Walk on a Quantum Computer</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../hybrid-algorithms/VQE/index.html">Variational Quantum Eigensolver (VQE) Tutorial</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../hybrid-algorithms/VQE/vqe-h2-cirq.html">Cirq: Variational Quantum Eigensolver for <span class="math notranslate nohighlight">\(H_2\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hybrid-algorithms/VQE/vqe-h2-qiskit.html">Qiskit: Variational Quantum Eigensolver for <span class="math notranslate nohighlight">\(H_2\)</span></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html"><strong>Real Devices</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">ex3-qal9000 Demo</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">ex3-qal9000 Demo: StateTomography on QAL9000</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro-to-helmi-qiskit.html">Introduction to Helmi with Qiskit</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../simulators/index.html"><strong>Simulators</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../simulators/ex3/index.html">ex3 Simulators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../simulators/ex3/qiskit/README.html">Running Quantum programs on the Qiskit Simulator in eX3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../simulators/ex3/qsim/README.html">QSIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../simulators/ex3/QuEST/README.html">Guide of Running QuEST in eX3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../simulators/lumi/index.html">LUMI Simulators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../training-material/index.html"><strong>Training Material Archive</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../training-material/qas2022/index.html">Quantum Autumn School 2022</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../training-material/qas2022/notebooks/index.html">Notebooks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/notebooks/E1_qc-1.html"><strong>Quantum programming I</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/notebooks/E1_qc-2.html"><strong>Quantum programming II</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/notebooks/E1_qc-3.html"><strong>Quantum programming III</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/notebooks/E2_optimization.html"><strong>Use case: Optimization</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/notebooks/E2_VQE-H2.html"><strong>Use case: Quantum chemistry</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/notebooks/quito.html">Quantum software testing with Quito</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../training-material/qas2022/slides/index.html">Slides</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/slides/landscape.html">The HPC-QC landscape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/slides/qc_hardware.html">Overview of different QC hardware approaches and QC types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/slides/programming_qc.html">Introduction to high-level languages for QC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/slides/hybrid_hpc_qc.html">The hybrid HPC-QC approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/slides/software_stack_overview.html">Overview of the software stack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/slides/hybrid_algorithms.html">Hybrid classical/quantum algorithms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2022/slides/qc_testing.html">Quantum software testing</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../training-material/qas2023/index.html">Quantum Autumn School 2023</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../training-material/qas2023/notebooks/index.html">Notebooks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2023/notebooks/E2_VQE-H2.html">Tutorial - Quantum chemistry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2023/notebooks/intro-to-helmi-qiskit.html">Tutorial - Introduction to Helmi with qiskit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2023/notebooks/Notebook_maxcut_Qas2023.html">Tutorial - Quantum Alternating Operator Ansatz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2023/notebooks/Notebook_maxcut_Qas2023_sol.html">Solutions - Tutorial - Quantum Alternating Operator Ansatz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2023/notebooks/Qubit_Spectroscopy_Analysis.html">Tutorial - Qubit Spectroscopy Analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../training-material/qas2023/slides/index.html">Slides</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2023/slides/hpc-qc.html">HPC-QC integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2023/slides/software-stack.html">QC software stack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../training-material/qas2023/slides/hybrid-classical-quantum.html">Hybrid Classical/Quantum Algorithms</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../docs/authors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/acknowledgement.html">Acknowledgement</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/NordIQuEst/application-library" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/real-devices/ex3-qal9000-demo/compute-bloch-frames.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ex3-qal9000 Demo: StateTomography on QAL9000</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-the-necessary-libraries">Install the Necessary Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-necessary-libraries">Import necessary libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-variables">Initialize variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-the-backend">Initialize the backend</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-statetomography-circuits">Build StateTomography circuits</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ex3-qal9000-demo-statetomography-on-qal9000">
+<h1>ex3-qal9000 Demo: StateTomography on QAL9000<a class="headerlink" href="#ex3-qal9000-demo-statetomography-on-qal9000" title="Link to this heading">#</a></h1>
+<p>This demonstration was given at QC Norway event given in December 2022. The demonstration can be viewed on youtube <a class="reference external" href="https://www.youtube.com/watch?v=PP3F9pcZgL8">here</a>. A blog post was written about the event <a class="reference external" href="https://nordiquest.net/_posts/2022-12-13-Nordiquest_QC_Norway/">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This code is part of Tergite</span>
+<span class="c1">#</span>
+<span class="c1"># (C) Copyright Axel Andersson 2022</span>
+<span class="c1">#</span>
+<span class="c1"># This code is licensed under the Apache License, Version 2.0. You may</span>
+<span class="c1"># obtain a copy of this license in the LICENSE.txt file in the current directory</span>
+<span class="c1"># of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.</span>
+<span class="c1">#</span>
+<span class="c1"># Any modifications or derivative works of this code must retain this</span>
+<span class="c1"># copyright notice, and modified files need to carry a notice indicating</span>
+<span class="c1"># that they have been altered from the originals.</span>
+<span class="c1">#</span>
+<span class="c1"># Modified:</span>
+<span class="c1"># Martin Ahindura 2024</span>
+<span class="c1"># Jake Muff 2024</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="install-the-necessary-libraries">
+<h2>Install the Necessary Libraries<a class="headerlink" href="#install-the-necessary-libraries" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install &quot;qiskit-terra==0.22.0&quot; &quot;qiskit-aer&gt;=0.11.0&quot; \
+    <span class="n">tqdm</span> <span class="n">matplotlib</span> <span class="s2">&quot;qiskit-experiments&gt;=0.4.0&quot;</span> <span class="s2">&quot;qiskit-ignis&gt;=0.7.1&quot;</span> \
+    <span class="s2">&quot;qiskit-ibmq-provider&gt;=0.19.2&quot;</span> <span class="s2">&quot;pandas&gt;=1.4.2&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="import-necessary-libraries">
+<h2>Import necessary libraries<a class="headerlink" href="#import-necessary-libraries" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span><span class="p">,</span> <span class="n">makedirs</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">shutil</span> <span class="kn">import</span> <span class="n">move</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">qiskit.circuit</span> <span class="k">as</span> <span class="nn">circuit</span>
+<span class="kn">import</span> <span class="nn">qiskit.compiler</span> <span class="k">as</span> <span class="nn">compiler</span>
+<span class="kn">from</span> <span class="nn">qiskit.ignis.verification.tomography</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">StateTomographyFitter</span><span class="p">,</span>
+    <span class="n">state_tomography_circuits</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">qiskit.providers.fake_provider</span> <span class="kn">import</span> <span class="n">FakeManilaV2</span>
+<span class="kn">from</span> <span class="nn">qiskit.providers.jobstatus</span> <span class="kn">import</span> <span class="n">JobStatus</span>
+<span class="kn">from</span> <span class="nn">qiskit.visualization</span> <span class="kn">import</span> <span class="n">plot_bloch_multivector</span>
+<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1417109/3518577687.py:12: DeprecationWarning: The qiskit.ignis package is deprecated and has been supersceded by the qiskit-experiments project. Refer to the migration guide: https://github.com/Qiskit/qiskit-ignis#migration-guide on how to migrate to the new project.
+  from qiskit.ignis.verification.tomography import (
+/home/jmujake/miniconda3/envs/nq-application-library/lib/python3.9/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="initialize-variables">
+<h2>Initialize variables<a class="headerlink" href="#initialize-variables" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># These variables would be important if you were connecting directly to QAL 9000 service</span>
+<span class="c1"># Instead, we will be using a local simulator</span>
+<span class="c1"># NOTE: The environment variables:</span>
+<span class="c1"># QAL9000_API_URL and QAL9000_API_TOKEN</span>
+<span class="c1"># should have been set to their appropriate values</span>
+<span class="c1">#</span>
+<span class="c1"># API_URL = environ.get(&quot;QAL9000_API_URL&quot;, default=&quot;https://api.qal9000.se&quot;)</span>
+<span class="c1"># API_TOKEN = environ.get(&quot;QAL9000_API_TOKEN&quot;)</span>
+<span class="c1"># # the name of this service. For your own bookkeeping.</span>
+<span class="c1"># SERVICE_NAME = &quot;local&quot;</span>
+
+<span class="n">folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;demo_bloch_frames&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Function to save old frames</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">save_old_frames</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">folder</span>
+    <span class="n">saved_folder</span> <span class="o">=</span> <span class="n">folder</span> <span class="o">/</span> <span class="s2">&quot;saved_animations&quot;</span>
+    <span class="n">makedirs</span><span class="p">(</span><span class="n">saved_folder</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">old_frames</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.jpg&quot;</span><span class="p">)]</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">old_frames</span><span class="p">):</span>
+        <span class="n">now_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">mstr</span> <span class="o">=</span> <span class="n">now_time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">%H%M%S&quot;</span><span class="p">)</span>
+        <span class="n">new_dir</span> <span class="o">=</span> <span class="n">saved_folder</span> <span class="o">/</span> <span class="n">mstr</span>
+        <span class="n">makedirs</span><span class="p">(</span><span class="n">new_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">old_frames</span><span class="p">:</span>
+            <span class="n">move</span><span class="p">(</span><span class="n">folder</span> <span class="o">/</span> <span class="n">f</span><span class="p">,</span> <span class="n">new_dir</span> <span class="o">/</span> <span class="n">f</span><span class="p">)</span>
+
+
+<span class="n">save_old_frames</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="initialize-the-backend">
+<h2>Initialize the backend<a class="headerlink" href="#initialize-the-backend" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If we were to connect to QAL 9000, we would have to initialize a provider account</span>
+<span class="c1"># with the right API_TOKEN and get the right backend:</span>
+<span class="c1">#</span>
+<span class="c1"># account = ProviderAccount(service_name=SERVICE_NAME, url=API_URL, token=API_TOKEN)</span>
+<span class="c1"># chalmers = Tergite.use_provider_account(account)</span>
+<span class="c1"># backend = chalmers.get_backend(&quot;SimulatorC&quot;)</span>
+<span class="c1"># backend.set_options(shots=2000)</span>
+
+<span class="c1"># Instead, we will use a local simulator</span>
+<span class="n">backend</span> <span class="o">=</span> <span class="n">FakeManilaV2</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded backend </span><span class="si">{</span><span class="n">backend</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded backend fake_manila_v2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="build-statetomography-circuits">
+<h2>Build StateTomography circuits<a class="headerlink" href="#build-statetomography-circuits" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define theta values</span>
+<span class="n">thetadef</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">])</span>
+
+
+<span class="c1"># Function to generate tomography circuits</span>
+<span class="k">def</span> <span class="nf">tomog_circs</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">circ</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+    <span class="n">circ</span><span class="o">.</span><span class="n">barrier</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">circ</span><span class="o">.</span><span class="n">reset</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">circ</span><span class="o">.</span><span class="n">rx</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">state_tomography_circuits</span><span class="p">(</span><span class="n">circ</span><span class="p">,</span> <span class="p">[</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transpiling...&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">redirect_stderr</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">precomputed_tomog_circs</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">compiler</span><span class="o">.</span><span class="n">transpile</span><span class="p">(</span><span class="n">tomog_circs</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">)</span> <span class="k">for</span> <span class="n">theta</span> <span class="ow">in</span> <span class="n">thetadef</span>
+    <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Transpiling...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_new_frame</span><span class="p">(</span><span class="n">j</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="n">job</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">precomputed_tomog_circs</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">meas_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">meas_return</span><span class="o">=</span><span class="s2">&quot;single&quot;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">job</span><span class="o">.</span><span class="n">status</span><span class="p">()</span> <span class="o">!=</span> <span class="n">JobStatus</span><span class="o">.</span><span class="n">DONE</span><span class="p">:</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># blocking wait</span>
+
+    <span class="c1"># fit state vector when result is ready</span>
+    <span class="n">fitter</span> <span class="o">=</span> <span class="n">StateTomographyFitter</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">(),</span> <span class="n">precomputed_tomog_circs</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="n">density_matrix</span> <span class="o">=</span> <span class="n">fitter</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;lstsq&quot;</span><span class="p">)</span>
+
+    <span class="c1"># compute frame and save to main memory</span>
+    <span class="n">plot</span> <span class="o">=</span> <span class="n">plot_bloch_multivector</span><span class="p">(</span><span class="n">density_matrix</span><span class="p">,</span> <span class="n">reverse_bits</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">plot</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># progress bar</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">thetadef</span><span class="p">)),</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Reconstructing qubit state&quot;</span><span class="p">):</span>
+    <span class="n">compute_new_frame</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reconstructing qubit state:   0%|          | 0/3 [00:00&lt;?, ?it/s]/home/jmujake/miniconda3/envs/nq-application-library/lib/python3.9/site-packages/qiskit/providers/fake_provider/fake_backend.py:348: RuntimeWarning: Aer not found using BasicAer and no noise
+  warnings.warn(&quot;Aer not found using BasicAer and no noise&quot;, RuntimeWarning)
+/home/jmujake/miniconda3/envs/nq-application-library/lib/python3.9/site-packages/qiskit/providers/fake_provider/fake_backend.py:352: UserWarning: Option meas_level is not used by this backend
+  job = self.sim.run(circuits, **options)
+/home/jmujake/miniconda3/envs/nq-application-library/lib/python3.9/site-packages/qiskit/providers/fake_provider/fake_backend.py:352: UserWarning: Option meas_return is not used by this backend
+  job = self.sim.run(circuits, **options)
+</pre></div>
+</div>
+<img alt="../../_images/6f7fb27545680e4bae4abc937cf02f345c4a6c578e7e8897597a32c34951a9bc.png" src="../../_images/6f7fb27545680e4bae4abc937cf02f345c4a6c578e7e8897597a32c34951a9bc.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reconstructing qubit state:  33%|███▎      | 1/3 [00:00&lt;00:01,  1.32it/s]
+</pre></div>
+</div>
+<img alt="../../_images/d8655d0ca88ff7eaa5f90fe26e35944293f36296629c1ef7c047a6ef076f2132.png" src="../../_images/d8655d0ca88ff7eaa5f90fe26e35944293f36296629c1ef7c047a6ef076f2132.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reconstructing qubit state:  67%|██████▋   | 2/3 [00:01&lt;00:00,  1.63it/s]
+</pre></div>
+</div>
+<img alt="../../_images/68407cb75b531d2b2d36e72776c7d989fec662ec781f22c2c57c2b1478ac0f80.png" src="../../_images/68407cb75b531d2b2d36e72776c7d989fec662ec781f22c2c57c2b1478ac0f80.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reconstructing qubit state: 100%|██████████| 3/3 [00:01&lt;00:00,  1.67it/s]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ex3-qal9000 Demo</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../intro-to-helmi-qiskit.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction to Helmi with Qiskit</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-the-necessary-libraries">Install the Necessary Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-necessary-libraries">Import necessary libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-variables">Initialize variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-the-backend">Initialize the backend</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-statetomography-circuits">Build StateTomography circuits</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By NordIQuEst
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, NordIQuEst.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
