@@ -1,5 +1,5 @@
 Variational Quantum Eigensolver (VQE) Tutorial
-==================
+==============================================
 
 Download the :download:`requirements.txt <requirements.txt>`
 

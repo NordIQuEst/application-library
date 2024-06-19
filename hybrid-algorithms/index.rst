@@ -1,5 +1,5 @@
 **Hybrid Algorithms**
-================
+=====================
 
 Example of hybrid algorithms
 

@@ -1,3 +1,6 @@
+---
+orphan: true
+---
 # NordIQuEst Application Library
 
 ## Build the docs
@@ -23,4 +26,3 @@ View with firefox for example
 ```
 firefox build/html/index.html
 ```
-

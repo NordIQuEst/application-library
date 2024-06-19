@@ -3,7 +3,7 @@ copyright = "2024, NordIQuEst"
 author = "NordIQuEst"
 
 
-extensions = ["myst_nb", "sphinx.ext.mathjax", 'sphinx_simplepdf']
+extensions = ["myst_nb", "sphinx.ext.mathjax", "sphinx_lesson",]
 
 templates_path = ['_templates']
 exclude_patterns = [
@@ -16,7 +16,6 @@ exclude_patterns = [
 
 source_suffix = {
     '.rst': 'restructuredtext',
-    '.txt': 'myst-nb',
     '.ipynb': 'myst-nb',
     '.md': 'myst-nb',
 }
@@ -25,6 +24,8 @@ myst_enable_extensions = [
     "amsmath",
     "dollarmath",
 ]
+
+suppress_warnings = ["myst.xref_missing", "myst.iref_ambiguous"]
 
 # https://myst-nb.readthedocs.io/en/latest/computation/execute.html
 nb_execution_mode = "off"
