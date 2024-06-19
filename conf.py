@@ -5,7 +5,7 @@ author = "NordIQuEst"
 
 show_authors = True
 
-extensions = ["myst_nb", "sphinx.ext.mathjax", "sphinx_lesson",]
+extensions = ["myst_nb", "sphinx.ext.mathjax", "sphinx_lesson", "sphinx.ext.githubpages",]
 
 templates_path = ['_templates']
 exclude_patterns = [
