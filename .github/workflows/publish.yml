@@ -1,0 +1,33 @@
+name: Upload package to PyPI and publish documentation
+
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Build docs
+        run: |
+          sphinx-build -b html . build/sphinx/html -W
+
+      - name: Deploy to gh-pages 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: build/sphinx/html
