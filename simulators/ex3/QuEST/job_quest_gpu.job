@@ -1,0 +1,36 @@
+#!/bin/bash
+#SBATCH --job-name="QuEST Spack GPU"
+#SBATCH --time=00:10:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mail-user=handy.kurniawan@ut.ee
+#SBATCH --mail-type=END
+#SBATCH --partition=a100q
+
+
+module load QuEST-kit/libQuEST/3.5.0/pthreaded+cu118+fp32
+
+cc -o gpu_example_32 tutorial_example.c -lQuEST -lm -DQuEST_PREC=1
+./gpu_example_32
+
+cc -o gpu_grover_32 grovers_search.c -lQuEST -lm -DQuEST_PREC=1
+./gpu_grover_32
+
+cc -o gpu_bernstein_32 bernstein_vazirani_circuit.c -lQuEST -lm -DQuEST_PREC=1
+./gpu_bernstein_32
+
+module unload QuEST-kit/libQuEST/3.5.0/pthreaded+cu118+fp32
+
+
+module load QuEST-kit/libQuEST/3.5.0/pthreaded+cu118+fp64
+
+cc -o gpu_example_64 tutorial_example.c -lQuEST -lm -DQuEST_PREC=2
+./gpu_example_64
+
+cc -o gpu_grover_64 grovers_search.c -lQuEST -lm -DQuEST_PREC=2
+./gpu_grover_64
+
+cc -o gpu_bernstein_64 bernstein_vazirani_circuit.c -lQuEST -lm -DQuEST_PREC=2
+./gpu_bernstein_64
+
+module unload QuEST-kit/libQuEST/3.5.0/pthreaded+cu118+fp64

@@ -1,0 +1,6 @@
+myst-nb
+pre-commit
+ruff
+Sphinx==7.3.7
+sphinx-book-theme
+sphinx_lesson

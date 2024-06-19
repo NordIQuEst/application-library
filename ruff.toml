@@ -1,0 +1,24 @@
+line-length = 90
+indent-width = 4
+
+target-version = "py311"
+extend-include = ["*.ipynb", "*.md", "*.rst"]
+exclude = ["training-material/qas2023/notebooks/Notebook_maxcut_Qas2023.ipynb",
+           "training-material/qas2023/notebooks/Notebook_maxcut_Qas2023_sol.ipynb",
+           "training-material/qas2022/notebooks/E2_optimization.ipynb"]
+
+[lint]
+select = ["F", "E", "W", "I001", "I002"]
+ignore = ["F811"]
+
+[lint.per-file-ignores]
+"training-material/qas2022/notebooks/E1_qc-2.ipynb" = ["E402"]
+
+[format]
+
+# pycodestyle "E" "W",
+# Pyflakes "F",
+# pyupgrade "UP",
+# flake8-bugbear "B",
+# flake8-simplify "SIM",
+# isort "I",
