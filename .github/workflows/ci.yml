@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requirements.txt
+          pip install -r requirements.txt
 
       - name: Test if docs can be built
         run: sphinx-build -b html . build/sphinx/html -W
