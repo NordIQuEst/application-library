@@ -1,4 +1,4 @@
-name: Upload package to PyPI and publish documentation
+name: Publish documentation
 
 on:
   push:
@@ -25,6 +25,7 @@ jobs:
       - name: Build docs
         run: |
           sphinx-build -b html . build/sphinx/html -W
+          touch build/sphinx/html/.nojekyll  # allow underscores in URL path
 
       - name: Deploy to gh-pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
