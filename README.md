@@ -1,8 +1,6 @@
 # **NordIQuEst Application Library**
 
-## Notebook setup
-
-## Nordiquest website
+Welcome to the NordIQuEst Application Library.
 
 
 ## Build the docs
@@ -11,7 +9,7 @@ The documentation for this page uses [sphinx](https://www.sphinx-doc.org/en/mast
 
 Setup python environment
 
-```
+```bash
 conda create -y -n sphinx python=3.12
 conda activate sphinx
 pip install -r requirements.txt
@@ -19,12 +17,12 @@ pip install -r requirements.txt
 
 Build the docs from root directory
 
-```
-sphinx-build -b html .  build/html
+```bash
+sphinx-build -b html . build/sphinx/html
 ```
 
 View with firefox for example
 
-```
+```bash
 firefox build/html/index.html
 ```
