@@ -3,6 +3,8 @@ copyright = "2024, NordIQuEst"
 author = "NordIQuEst"
 
 
+show_authors = True
+
 extensions = ["myst_nb", "sphinx.ext.mathjax", "sphinx_lesson",]
 
 templates_path = ['_templates']

@@ -1,7 +1,9 @@
----
-orphan: true
----
-# NordIQuEst Application Library
+# **NordIQuEst Application Library**
+
+## Notebook setup
+
+## Nordiquest website
+
 
 ## Build the docs
 

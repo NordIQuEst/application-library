@@ -1,11 +1,15 @@
 Welcome to NordIQuEst Application Library's documentation!
 ==========================================================
 
+Contents
+========
+
+
 .. toctree::
    :maxdepth: 1
    :caption: Application Library
 
-   docs/introduction.md
+   README.md
    hybrid-algorithms/index
    real-devices/index
    simulators/index
