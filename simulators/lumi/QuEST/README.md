@@ -76,11 +76,13 @@ QuEST_PREC=1
 
 ## Compiling the file
 
-Once loaded, we can compile the `file.c` that we want to run in QuEST. For example,
+Once loaded, we can for example, compile the `bernstein_vazirani_circuit.c` that we want to run in QuEST. 
 
 ```
 cc -o bernstein -I $QuEST_INCLUDE_DIR -L $QuEST_LIBRARY_PATH  bernstein_vazirani_circuit.c -lQuEST -lm -DQuEST_PREC=$QuEST_PREC
 ```
+
+The file used in this example can be found [here](https://github.com/QuEST-Kit/QuEST/blob/master/examples/bernstein_vazirani_circuit.c)
 
 After that, we can just run the output `./bernstein` to get the result.
 

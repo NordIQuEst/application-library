@@ -8,11 +8,14 @@ module use /appl/local/quantum/modulefiles
 module load qiskit
 ```
 
-This will load the default version of qiskit along with other major Qiskit packages (Terra, Nature, Aer, etc.)
+This will load the default version of qiskit (v1.1.1) along with other major Qiskit packages (Terra, Nature, Aer, etc.)
 
 ## Run the quantum programs with sbatch
 You can edit a test.sh file to run quantum programs. (recommended)
-```
+
+```{code-block} sh
+:caption: test.sh
+
 #!/bin/bash
 #SBATCH --account=<project>
 #SBATCH --partition=small-g
@@ -49,3 +52,34 @@ Also, in the test.sh file, you can instead use a GPU node add a line for running
 #SBATCH --gpus-per-node=1
 #SBATCH --gpu-bind=closest
 ```
+
+Here is an example script to run on the GPU node. 
+
+```
+from qiskit import transpile
+#from qiskit.compiler import transpile
+from qiskit_aer import AerSimulator
+from qiskit.circuit.library import QuantumVolume
+
+# Create a statevector simulation test 
+depth = 20
+qubits = 20
+shots = 1000
+
+# Choose statevector with GPU
+sim = AerSimulator(method='statevector', device="GPU")
+
+# Create the circuit
+circuit = QuantumVolume(depth, qubits, seed=100)
+circuit.measure_all()
+circuit = transpile(circuit, sim)
+
+# Run the simulation with cuStateVec
+
+result_statevec = sim.run(circuit,shots=shots,seed_simulator=333).result()
+time_statevec = float(result_statevec.to_dict()['results'][0]['time_taken'])
+
+print(f"Time statevector: {time_statevec}.")
+```
+
+You'll notice that the time taken to run with the GPU is much smaller than running with the CPU node.
