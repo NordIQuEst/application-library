@@ -2,7 +2,7 @@
 
 ## Loading Spack
 
-Spack is used for QuEST installation in LUMI. First we need to load Spack:
+Spack is used for QuEST installation. First we need to load Spack:
 
 ```
 module use /cm/shared/spack-modules/modulesfiles
