@@ -6,6 +6,5 @@ Documentation for running simulators on LUMI.
 .. toctree::
    :maxdepth: 1
 
-   Qiskit <qiskit/index.rst>
-   QSim <qsim/README.md>
-   QuEST <QuEST/README.md>
+   v0.12.0 <v0.12.0/README.md>
+   v1.1.1 <v1.1.1/README.md>

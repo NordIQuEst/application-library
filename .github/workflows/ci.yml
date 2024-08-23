@@ -2,8 +2,8 @@ name: Continuous Integration
 
 on:
   pull_request:
-  schedule:
-    - cron: "0 0 * * *"
+  pull_request_review:
+    types: [submitted]
 
 
 jobs:
