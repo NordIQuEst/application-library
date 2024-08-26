@@ -41,7 +41,7 @@ sbatch test.sh
 The results will be printed in a slurm.out file.
 
 ## Running with GPU
-It is possible to run GPU accelerated circuits on LUMI. 
+It is possible to run GPU accelerated circuits on LUMI.
 
 In the Python file, you can configure the simulator with
 ```
@@ -53,7 +53,7 @@ Also, in the test.sh file, you can instead use a GPU node add a line for running
 #SBATCH --gpu-bind=closest
 ```
 
-Here is an example script to run on the GPU node. 
+Here is an example script to run on the GPU node.
 
 ```
 from qiskit import transpile
@@ -61,7 +61,7 @@ from qiskit import transpile
 from qiskit_aer import AerSimulator
 from qiskit.circuit.library import QuantumVolume
 
-# Create a statevector simulation test 
+# Create a statevector simulation test
 depth = 20
 qubits = 20
 shots = 1000
