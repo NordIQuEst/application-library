@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Quantum Chemistry &#8212; NordIQuEst Application Library</title>
+    <title>Quantum Reservoir Computing &#8212; NordIQuEst Application Library</title>
   
   
   
@@ -55,14 +55,12 @@
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>window.MathJax = {"tex": {"macros": {"vr": "\\vec{r}", "ket": ["\\left| #1 \\right\\rangle", 1], "bra": ["\\left| #1 \\right\\langle", 1], "iprod": ["\\left\\langle #1 | #2 \\right\\rangle", 2]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'hybrid-algorithms/Quantum Chemistry/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'hybrid-algorithms/QuantumReservoirComputing/index';</script>
     <link rel="icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Installation instructions" href="Installation.html" />
-    <link rel="prev" title="Comparison of Different Optimizers for QAOA on a Max Cut instance" href="../QAOA/MaxCut.html" />
+    <link rel="next" title="Quantum Reservoir Computing: Logistic map" href="Logistic%20map.html" />
+    <link rel="prev" title="Qiskit: Variational Quantum Eigensolver for \(H_2\)" href="../VQE/vqe-h2-qiskit.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,11 +178,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../QAOA/MaxCut.html">Comparison of Different Optimizers for QAOA on a Max Cut instance</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Quantum Chemistry</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="Installation.html">Installation instructions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Theory.html">Theory: Quantum Chemistry on Quantum Computers</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Quantum%20Chemistry/index.html">Quantum Chemistry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum%20Chemistry/Installation.html">Installation instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum%20Chemistry/Theory.html">Theory: Quantum Chemistry on Quantum Computers</a></li>
 
-<li class="toctree-l3"><a class="reference internal" href="VQE.html">Notebook example: VQE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum%20Chemistry/VQE.html">Notebook example: VQE</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../Quantum%20Walk/index.html">Quantum Walk</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -197,8 +195,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../VQE/vqe-h2-qiskit.html">Qiskit: Variational Quantum Eigensolver for <span class="math notranslate nohighlight">\(H_2\)</span></a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../QuantumReservoirComputing/index.html">Quantum Reservoir Computing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../QuantumReservoirComputing/Logistic%20map.html">Quantum Reservoir Computing: Logistic map</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Quantum Reservoir Computing</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="Logistic%20map.html">Quantum Reservoir Computing: Logistic map</a></li>
 </ul>
 </details></li>
 </ul>
@@ -346,7 +344,7 @@
       
       
       
-      <li><a href="../../_sources/hybrid-algorithms/Quantum Chemistry/index.rst" target="_blank"
+      <li><a href="../../_sources/hybrid-algorithms/QuantumReservoirComputing/index.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -428,7 +426,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Quantum Chemistry</h1>
+    <h1>Quantum Reservoir Computing</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -442,32 +440,23 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="quantum-chemistry">
-<h1>Quantum Chemistry<a class="headerlink" href="#quantum-chemistry" title="Link to this heading">#</a></h1>
-<p>Download the <a class="reference download internal" download="" href="../../_downloads/c6f54cdde42ece6ba7035a986f7b450c/requirements.txt"><code class="xref download docutils literal notranslate"><span class="pre">requirements.txt</span></code></a></p>
+  <section id="quantum-reservoir-computing">
+<h1>Quantum Reservoir Computing<a class="headerlink" href="#quantum-reservoir-computing" title="Link to this heading">#</a></h1>
+<p>This folder contains:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="Logisticmap.html">Logistic map.ipynb</a> - explains how to use quantum computers to predict time series</p></li>
+</ul>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation instructions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Installation.html#instructions-to-install-the-necessary-packages-in-a-conda-environment">Instructions to Install the Necessary Packages in a Conda Environment:</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Theory.html">Theory: Quantum Chemistry on Quantum Computers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Theory.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Theory.html#quantum-chemistry-basics">Quantum Chemistry Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Theory.html#quantum-computing-and-quantum-chemistry">Quantum Computing and Quantum Chemistry</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Theory.html#why-quantum-computers-can-be-advantageous">Why Quantum Computers Can Be Advantageous?</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Theory.html#workflow-of-quantum-chemistry-simulations">Workflow of Quantum Chemistry Simulations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Theory.html#obtaining-the-molecular-wavefunction">1. Obtaining the Molecular Wavefunction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Theory.html#construction-of-the-molecular-hamiltonian">2. Construction of the Molecular Hamiltonian</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Theory.html#mapping-to-paulis">3. Mapping to Paulis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Theory.html#introducing-the-ansatz-ucc-or-hea">4. Introducing the Ansatz: UCC or HEA?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Theory.html#obtaining-the-expectation-value-via-vqe-or-qpe">5. Obtaining the Expectation Value via VQE or QPE</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="VQE.html">Notebook example: VQE</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="VQE.html#finding-the-ground-state-energy-of-molecular-hydrogen-h2-via-the-variational-quantum-eigensolver-vqe">Finding the Ground State Energy of Molecular Hydrogen (H2) via the Variational Quantum Eigensolver (VQE).</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Logistic%20map.html">Quantum Reservoir Computing: Logistic map</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Logistic%20map.html#install-and-import-quantum-reservoirpy-if-needed">1. Install and import (quantum)reservoirpy if needed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Logistic%20map.html#import-other-necessary-modules">2. Import other necessary modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Logistic%20map.html#we-want-to-learn-the-logistic-map-from-observations">3. We want to “learn” the logistic map from observations.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Logistic%20map.html#the-setup">4. The setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Logistic%20map.html#helper-functions-to-fit-the-model-and-run-predictions">5. Helper functions to fit the model and run predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Logistic%20map.html#fit-the-model-with-linear-regression-and-run-the-predictions">6. Fit the model with linear regression and run the predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Logistic%20map.html#plot-the-predictions">7. Plot the predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Logistic%20map.html#poincare-plot-to-see-how-well-the-logistic-map-was-learned">8. Poincaré plot to see how well the logistic map was learned.</a></li>
 </ul>
 </li>
 </ul>
@@ -486,20 +475,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../QAOA/MaxCut.html"
+       href="../VQE/vqe-h2-qiskit.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Comparison of Different Optimizers for QAOA on a Max Cut instance</p>
+        <p class="prev-next-title">Qiskit: Variational Quantum Eigensolver for <span class="math notranslate nohighlight">\(H_2\)</span></p>
       </div>
     </a>
     <a class="right-next"
-       href="Installation.html"
+       href="Logistic%20map.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Installation instructions</p>
+        <p class="prev-next-title">Quantum Reservoir Computing: Logistic map</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

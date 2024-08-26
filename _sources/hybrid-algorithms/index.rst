@@ -10,3 +10,4 @@ Example of hybrid algorithms
    Quantum Chemistry/index
    Quantum Walk/index
    VQE/index
+   QuantumReservoirComputing/index
