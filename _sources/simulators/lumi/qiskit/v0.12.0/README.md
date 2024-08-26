@@ -7,15 +7,15 @@ First you need to activate the environment
 source /appl/local/quantum/qiskit-aer/0.12.0/bin/activate
 ```
 
-## Run the quantum programs directly 
+## Run the quantum programs directly
 Given a Python file of quantum programs, test.py.
 ```
-from qiskit import (  
-    QuantumCircuit,  
-    QuantumRegister,  
-    ClassicalRegister,  
-    execute,  
-    Aer,  
+from qiskit import (
+    QuantumCircuit,
+    QuantumRegister,
+    ClassicalRegister,
+    execute,
+    Aer,
 )
 
 q = QuantumRegister(2)
