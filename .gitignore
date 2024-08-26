@@ -6,3 +6,4 @@ jupyter_execute
 build
 .idea/
 .ruff_cache
+__pycache__
