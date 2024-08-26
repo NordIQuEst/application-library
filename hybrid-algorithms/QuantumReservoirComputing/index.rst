@@ -1,5 +1,5 @@
 Quantum Reservoir Computing
-==================
+===========================
 
 This folder contains:
 
