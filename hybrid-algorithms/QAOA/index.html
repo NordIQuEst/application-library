@@ -59,7 +59,7 @@
     <link rel="icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="MaxCut QAOA" href="MaxCut.html" />
+    <link rel="next" title="Comparison of Different Optimizers for QAOA on a Max Cut instance" href="MaxCut.html" />
     <link rel="prev" title="Hybrid Algorithms" href="../index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -175,7 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../README.html"><strong>NordIQuEst Application Library</strong></a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html"><strong>Hybrid Algorithms</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Quantum Approximate Optimization Algorithm (QAOA)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="MaxCut.html">MaxCut QAOA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MaxCut.html">Comparison of Different Optimizers for QAOA on a Max Cut instance</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../Quantum%20Chemistry/index.html">Quantum Chemistry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -441,7 +441,16 @@ document.write(`
 <p>Download the <a class="reference download internal" download="" href="../../_downloads/ffc58f6c2e19f5b81fc4cfb9cb86c780/requirements.txt"><code class="xref download docutils literal notranslate"><span class="pre">requirements.txt</span></code></a></p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="MaxCut.html">MaxCut QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MaxCut.html">Comparison of Different Optimizers for QAOA on a Max Cut instance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MaxCut.html#install-and-import-the-python-qaoa-package-if-needed">1. Install and import the python QAOA package if needed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MaxCut.html#create-barabasialbert-graph-instance-more-examples-can-be-found-here-https-github-com-openquantumcomputing-data">2. Create Barabási–Albert graph instance, more examples can be found here https://github.com/OpenQuantumComputing/data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MaxCut.html#create-a-qaoa-instance">3. Create a QAOA instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MaxCut.html#draw-the-circuit-for-the-initial-state">4.1 draw the circuit for the initial state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MaxCut.html#draw-the-circuit-for-the-problem">4.2 draw the circuit for the problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MaxCut.html#draw-the-circuit-for-the-mixer">4.3 draw the circuit for the mixer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MaxCut.html#below-the-approximation-ratios-are-plotted-for-the-different-optimizers-from-the-figure-we-see-that-the-different-optimizers-give-roughly-the-same-approximation-ratio">6. Below the approximation ratios are plotted for the different optimizers. From the figure we see that the different optimizers give roughly the same approximation ratio.</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -471,7 +480,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">MaxCut QAOA</p>
+        <p class="prev-next-title">Comparison of Different Optimizers for QAOA on a Max Cut instance</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

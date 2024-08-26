@@ -177,7 +177,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../README.html"><strong>NordIQuEst Application Library</strong></a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../hybrid-algorithms/index.html"><strong>Hybrid Algorithms</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../hybrid-algorithms/QAOA/index.html">Quantum Approximate Optimization Algorithm (QAOA)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../hybrid-algorithms/QAOA/MaxCut.html">MaxCut QAOA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../hybrid-algorithms/QAOA/MaxCut.html">Comparison of Different Optimizers for QAOA on a Max Cut instance</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../hybrid-algorithms/Quantum%20Chemistry/index.html">Quantum Chemistry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -615,8 +615,8 @@ document.write(`
 </div>
 <p>Now we get a result which is clearly different from classical computing. In the above circuit, we ran the circuit a hundred times (<code class="docutils literal notranslate"><span class="pre">shots=100</span></code>), each time getting a different state as a result of measurement. The <code class="docutils literal notranslate"><span class="pre">counts</span></code> above shows the number of each outcome occurring. The probabilities in the histogram are again just relative occurrences of each outcome, i.e. each basis state.</p>
 <p>Note that the structure of the circuit is similar as before: we operate on each qubit separately. This time, however, the final state <em>before measurement</em> is a linear combination of all basis states.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c1adf181-dd89-475d-8172-87985e5fc056">
-<span class="eqno">(1)<a class="headerlink" href="#equation-c1adf181-dd89-475d-8172-87985e5fc056" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1269e050-cdcd-4e48-bc0b-e78c302aa498">
+<span class="eqno">(1)<a class="headerlink" href="#equation-1269e050-cdcd-4e48-bc0b-e78c302aa498" title="Permalink to this equation">#</a></span>\[\begin{align}
 \ket{\psi} &amp;= \left( H \otimes H \otimes H \right) \ket{000} = H\ket{0} \otimes H\ket{0} \otimes H\ket{0}\\
 &amp;= \frac{\ket{0} + \ket{1}}{\sqrt{2}} \otimes \frac{\ket{0} + \ket{1}}{\sqrt{2}} \otimes \frac{\ket{0} + \ket{1}}{\sqrt{2}} \\
 &amp;= \frac{1}{\sqrt{8}} \left[ \left( \ket{0} + \ket{1} \right) \otimes \left( \ket{0} + \ket{1} \right) \otimes \left( \ket{0} + \ket{1} \right) \right] \\
