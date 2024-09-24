@@ -7,6 +7,7 @@ Please first load all QC models on eX3.
 module use /cm/shared/ex3-qc-modules/modulefiles
 ```
 
+
 Currently, we provide the following QC modules:
 
 Google,  IBM,  Nvidia,  qucat,  QuEST-kit,  quito,  qusbt,  Xanadu,  ZabataComputing
@@ -28,4 +29,6 @@ jupyter notebook --no-browser --port [port number]
 ssh -t -t [user name]@[eX3 login node ip address] -L [port number]:localhost:[port number] ssh g001 -L [port number]:localhost:[port number]
 ```
 
+
 Now, you can open http://localhost:[port number]/ in your local browser to run the Jupyter Notebook tutorials.
+
