@@ -10,4 +10,3 @@ Tutorials of running three quantum software testing tools, Quito, QuSBT and QuCA
    tutorial_quito.ipynb
    tutorial_qusbt.ipynb
    tutorial_qucat.ipynb
-
