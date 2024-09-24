@@ -1,4 +1,4 @@
-**Quantum Software Testing Tools**
+Quantum Software Testing Tools
 ==============================
 
 Tutorials of running three quantum software testing tools, Quito, QuSBT and QuCAT on eX3.
