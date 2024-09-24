@@ -272,6 +272,13 @@
 </details></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../testing-tools/index.html">Quantum Software Testing Tools</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../testing-tools/README.html">Run Software Testing Tools on Jupyter Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../testing-tools/tutorial_quito.html">Welcome to Quito!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../testing-tools/tutorial_qusbt.html">Welcome to QuSBT!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../testing-tools/tutorial_qucat.html">Welcome to QuCAT!</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Information</span></p>
 <ul class="nav bd-sidenav">
@@ -619,8 +626,8 @@ document.write(`
 </div>
 <p>Now we get a result which is clearly different from classical computing. In the above circuit, we ran the circuit a hundred times (<code class="docutils literal notranslate"><span class="pre">shots=100</span></code>), each time getting a different state as a result of measurement. The <code class="docutils literal notranslate"><span class="pre">counts</span></code> above shows the number of each outcome occurring. The probabilities in the histogram are again just relative occurrences of each outcome, i.e. each basis state.</p>
 <p>Note that the structure of the circuit is similar as before: we operate on each qubit separately. This time, however, the final state <em>before measurement</em> is a linear combination of all basis states.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d17f142c-eb79-4ec0-a9c3-5403e93ccd39">
-<span class="eqno">(1)<a class="headerlink" href="#equation-d17f142c-eb79-4ec0-a9c3-5403e93ccd39" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7977df33-1416-4357-bd07-94ca912b5b51">
+<span class="eqno">(1)<a class="headerlink" href="#equation-7977df33-1416-4357-bd07-94ca912b5b51" title="Permalink to this equation">#</a></span>\[\begin{align}
 \ket{\psi} &amp;= \left( H \otimes H \otimes H \right) \ket{000} = H\ket{0} \otimes H\ket{0} \otimes H\ket{0}\\
 &amp;= \frac{\ket{0} + \ket{1}}{\sqrt{2}} \otimes \frac{\ket{0} + \ket{1}}{\sqrt{2}} \otimes \frac{\ket{0} + \ket{1}}{\sqrt{2}} \\
 &amp;= \frac{1}{\sqrt{8}} \left[ \left( \ket{0} + \ket{1} \right) \otimes \left( \ket{0} + \ket{1} \right) \otimes \left( \ket{0} + \ket{1} \right) \right] \\
