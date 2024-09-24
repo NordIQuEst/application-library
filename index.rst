@@ -14,6 +14,7 @@ Contents
    real-devices/index
    simulators/index
    training-material/index
+   testing-tools/index
 
 .. toctree::
    :maxdepth: 1
