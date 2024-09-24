@@ -31,4 +31,3 @@ ssh -t -t [user name]@[eX3 login node ip address] -L [port number]:localhost:[po
 
 
 Now, you can open http://localhost:[port number]/ in your local browser to run the Jupyter Notebook tutorials.
-
