@@ -7,7 +7,7 @@ show_authors = True
 
 extensions = ["myst_nb", "sphinx.ext.mathjax", "sphinx_lesson", "sphinx.ext.githubpages",]
 
-templates_path = ['_templates']
+templates_path = ['docs/_templates']
 exclude_patterns = [
     "_build",
     "Thumbs.db",
@@ -41,7 +41,17 @@ html_theme_options = {
     "repository_url": "https://github.com/NordIQuEst/application-library",
     "use_repository_button": True,
     "show_navbar_depth": 2,  # https://sphinx-book-theme.readthedocs.io/en/stable/sections/sidebar-primary.html#control-the-depth-of-the-left-sidebar-lists-to-expand
+    "extra_footer": """
+    <div style="width: 100%; text-align: center; padding: 10px 0;">
+        <a href="https://nordiquest.net" target="_blank">https://nordiquest.net</a>
+        <hr>
+        <p><strong>Funding</strong></p>
+        <p>NordIQuEst is a project of the <a href="https://neic.no" target="_blank"><b>Nordic e-Infrastructure Collaboration (NeIC).</b></a>. NeIC is an organisational unit under <a href="https://www.nordforsk.org/" target="_blank"><b>NordForsk.</b></a>.</p>
+        <p>Project Manager: Alberto Lanzanova (alberto.lanzanova at csc.fi)</p>
+    </div>
+"""
 }
+
 
 # -- MathJax options ----------------------------------------------------------
 
