@@ -754,8 +754,8 @@ document.write(`
 \ket{\beta_{00}} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}
 \]</div>
 <p>where one particle is in Alice’s and the other in Bob’s possession. Alice also has another particle whose state <span class="math notranslate nohighlight">\(\ket{\psi} = \alpha\ket{0} + \beta\ket{1}\)</span> is not known to her, and whose state she wants to teleport. The total state of the system at the end of preparation is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0cc4049f-c12e-46ec-b8ca-4fa310ecfbef">
-<span class="eqno">(1)<a class="headerlink" href="#equation-0cc4049f-c12e-46ec-b8ca-4fa310ecfbef" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8fd1f8fb-2ac0-4451-abbc-f1ffd14c696d">
+<span class="eqno">(1)<a class="headerlink" href="#equation-8fd1f8fb-2ac0-4451-abbc-f1ffd14c696d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \ket{\Psi_1} &amp;= \ket{\psi}\ket{\beta_{00}} \\
 &amp;= \frac{1}{\sqrt{2}}\left[ \alpha \ket{0} \left( \ket{00} + \ket{11} \right) + \beta \ket{1} \left( \ket{00} + \ket{11} \right) \right].
 \end{align}\]</div>
@@ -766,8 +766,8 @@ document.write(`
 \frac{1}{\sqrt{2}}\left[ \alpha \ket{0} \left( \ket{00} + \ket{11} \right) + \beta \ket{1} \left( \ket{10} + \ket{01} \right) \right]
 \]</div>
 <p>Next we apply the Hadamard gate to the Alice’s qubit in the unknown state. The state becomes</p>
-<div class="amsmath math notranslate nohighlight" id="equation-01f77e78-1425-45e0-9e54-bcd515532c7a">
-<span class="eqno">(2)<a class="headerlink" href="#equation-01f77e78-1425-45e0-9e54-bcd515532c7a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fb5e4461-e139-4ddc-8b3c-4bd3be18105e">
+<span class="eqno">(2)<a class="headerlink" href="#equation-fb5e4461-e139-4ddc-8b3c-4bd3be18105e" title="Permalink to this equation">#</a></span>\[\begin{align}
 \ket{\Psi_3} &amp;= 
 \frac{1}{\sqrt{2}}\left[ \alpha \left( \frac{\ket{0} + \ket{1}}{\sqrt{2}} \right) \left( \ket{00} + \ket{11} \right) + \beta \left( \frac{\ket{0} - \ket{1}}{\sqrt{2}} \right) \left( \ket{10} + \ket{01} \right) \right] 
 \\
@@ -775,8 +775,8 @@ document.write(`
 \frac{1}{2}\left[ \alpha \left( \ket{0} + \ket{1} \right) \left( \ket{00} + \ket{11} \right) + \beta \left( \ket{0} - \ket{1} \right) \left( \ket{10} + \ket{01} \right) \right] 
 \end{align}\]</div>
 <p>We can re-write this expression to better see the structure we are going to use in the next step. This does not change the state, we are just re-organizing it,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7c961e8a-f938-4ba0-8a42-d9bb03ee188d">
-<span class="eqno">(3)<a class="headerlink" href="#equation-7c961e8a-f938-4ba0-8a42-d9bb03ee188d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e0b9bd11-4044-4756-b599-08d42dcfab65">
+<span class="eqno">(3)<a class="headerlink" href="#equation-e0b9bd11-4044-4756-b599-08d42dcfab65" title="Permalink to this equation">#</a></span>\[\begin{align}
 \ket{\Psi_3} = 
 \frac{1}{2} &amp;\left[ \ket{00} \left( \alpha\ket{0} + \beta\ket{1} \right) + 
 \ket{01} \left( \alpha\ket{1} + \beta\ket{0} \right) \right. \\
@@ -784,8 +784,8 @@ document.write(`
 \ket{11} \left( \alpha\ket{1} - \beta\ket{0} \right) \right].
 \end{align}\]</div>
 <p><strong>Step 2</strong>. Alice measures her two (leftmost) qubits, getting one of the four outcomes, <span class="math notranslate nohighlight">\(00, 01, 10\)</span> or <span class="math notranslate nohighlight">\(11\)</span>. These correspond to the four states <span class="math notranslate nohighlight">\(\ket{00}, \ket{01}, \ket{10}\)</span> or <span class="math notranslate nohighlight">\(\ket{11}\)</span>. As a result of the measurement, the total state <span class="math notranslate nohighlight">\(\ket{\Psi_3}\)</span> will collapse to one of the following four cases:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-29548941-f6cb-4ee1-9302-a0517f5f1cb6">
-<span class="eqno">(4)<a class="headerlink" href="#equation-29548941-f6cb-4ee1-9302-a0517f5f1cb6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4eeaa371-0642-4b1a-88b6-35f9deda5bf0">
+<span class="eqno">(4)<a class="headerlink" href="#equation-4eeaa371-0642-4b1a-88b6-35f9deda5bf0" title="Permalink to this equation">#</a></span>\[\begin{align}
 00 &amp;\rightarrow  \ket{\Psi_4} = \ket{00} \left( \alpha\ket{0} + \beta\ket{1} \right), \\
 01 &amp;\rightarrow  \ket{\Psi_4} = \ket{01} \left( \alpha\ket{1} + \beta\ket{0} \right), \\ 
 10 &amp;\rightarrow  \ket{\Psi_4} = \ket{10} \left( \alpha\ket{0} - \beta\ket{1} \right), \\
