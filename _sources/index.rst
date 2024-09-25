@@ -1,6 +1,10 @@
 Welcome to NordIQuEst Application Library's documentation!
 ==========================================================
 
+This is the documentation for the NordIQuEst Application Library.
+
+The full NordIQuEst website can be found at `https://nordiquest.net <https://nordiquest.net/>`_.
+
 Contents
 ========
 
