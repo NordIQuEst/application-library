@@ -11,3 +11,4 @@ Contributors
 * Franz Georg Fuchs <franzgeorgfuchs@gmail.com>
 * Axel Andersson (Chalmers)
 * Martin Ahindura (Chalmers)
+* Xinyi Wang (Simula)

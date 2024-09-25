@@ -1,0 +1,6 @@
+iqm-client==17.5
+matplotlib
+pylatexenc
+qiskit-algorithms
+qiskit-iqm==13.6
+qiskit[visualization]
