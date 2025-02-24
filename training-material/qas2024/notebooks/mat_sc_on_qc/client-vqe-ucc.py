@@ -269,17 +269,17 @@ if __name__ == "__main__":
 
             def solve(self, problem):
                 result = super().solve(problem)
-                
+
                 self.previous_energies.append(result.total_energies[-1])
                 if len(self.previous_energies) > self.convergence_window:
                     self.previous_energies.pop(0)
-                
+
                 if len(self.previous_energies) == self.convergence_window:
                     energy_range = max(self.previous_energies) - min(self.previous_energies)
                     if energy_range < self.convergence_threshold:
                         logger.info("ADAPT-VQE Convergence achieved!")
                         self._converged = True
-                
+
                 return result
 
         solver = CustomAdaptVQE(

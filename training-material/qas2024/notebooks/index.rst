@@ -12,4 +12,3 @@ Notebooks
    option_pricing.ipynb
    qaoa_exercise.ipynb
    surface_code_threshold.ipynb
-
