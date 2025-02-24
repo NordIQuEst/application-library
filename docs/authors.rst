@@ -12,3 +12,4 @@ Contributors
 * Axel Andersson (Chalmers)
 * Martin Ahindura (Chalmers)
 * Xinyi Wang (Simula)
+* Jerome Lenssen <jerome.lenssen@vtt.fi>
