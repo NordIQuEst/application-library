@@ -10,3 +10,4 @@ Archive of Nordiquest's training material
    qas2022/index
    qas2023/index
    neic2024-qc101/index
+   qas2024/index

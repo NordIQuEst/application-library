@@ -1,4 +1,4 @@
-# Tergite
+# Tergite Software Stack
 
 ## The software stack for the quantum computer at WACQT
 
