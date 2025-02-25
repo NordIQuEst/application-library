@@ -1,7 +1,7 @@
 Quantum Autumn School 2022
 ==========================
 
-The Quantum Autumn School was co-organised together with with `EuroCC National Competence Centre Sweden (ENCCS) <https://enccs.se/>`_.
+The Quantum Autumn School was co-organised together with `EuroCC National Competence Centre Sweden (ENCCS) <https://enccs.se/>`_.
 
 This was a two day workshop covering the fundamentals of quantum computing:
 
