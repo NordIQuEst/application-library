@@ -1,7 +1,7 @@
 Quantum Autumn School 2023
 ==========================
 
-The Quantum Autumn School was co-organised together with with `EuroCC National Competence Centre Sweden (ENCCS) <https://enccs.se/>`_ and the Wallenberg Centre for Quantum Technologies (WACQT).
+The Quantum Autumn School was co-organised together with `EuroCC National Competence Centre Sweden (ENCCS) <https://enccs.se/>`_ and the Wallenberg Centre for Quantum Technologies (WACQT).
 
 The event saw researchers and members of industry take part in a 3-day hybrid event held in Gothenburg, Sweden.
 The participants were given an introduction to quantum computing and a look at the possible applications for quantum computers,

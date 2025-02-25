@@ -1,23 +1,23 @@
 ci:
-    autoupdate_schedule: quarterly
+  autoupdate_schedule: quarterly
 
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
+-   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
-      - id: end-of-file-fixer
-      - id: trailing-whitespace
-      - id: mixed-line-ending
-      - id: check-merge-conflict
-      - id: debug-statements
-      - id: fix-byte-order-marker
-      - id: requirements-txt-fixer
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+    -   id: mixed-line-ending
+    -   id: check-merge-conflict
+    -   id: debug-statements
+    -   id: fix-byte-order-marker
+    -   id: requirements-txt-fixer
 
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.8.6
+-   repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.9.7
     hooks:
-      - id: ruff
+    -   id: ruff
         args: [--fix]
         types_or: [jupyter]
-      - id: ruff-format
+    -   id: ruff-format
         types_or: [jupyter]
