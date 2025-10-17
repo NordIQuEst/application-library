@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_lesson.css?v=e9df6548" />
@@ -557,13 +557,13 @@ In this tutorial, we will see how QAOA can be applied to solve a real-world opti
 <section id="mathematical-formulation">
 <h3>Mathematical Formulation<a class="headerlink" href="#mathematical-formulation" title="Link to this heading">#</a></h3>
 <p>The tail-assignment problem can be formulated as the following integer linear program:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-930ab7be-5d79-461d-9e44-dc1c333feef6">
-<span class="eqno">(1)<a class="headerlink" href="#equation-930ab7be-5d79-461d-9e44-dc1c333feef6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-54c6ab2e-cd32-42de-8c56-173b363fd5bd">
+<span class="eqno">(1)<a class="headerlink" href="#equation-54c6ab2e-cd32-42de-8c56-173b363fd5bd" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \min\sum_{r\in R}c_rx_r,
 \end{equation}\]</div>
 <p>Such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4efb3399-86ce-4c8c-9971-6c39df0d6ba7">
-<span class="eqno">(2)<a class="headerlink" href="#equation-4efb3399-86ce-4c8c-9971-6c39df0d6ba7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f5bc4003-4aa9-414b-913d-7555e90aff5d">
+<span class="eqno">(2)<a class="headerlink" href="#equation-f5bc4003-4aa9-414b-913d-7555e90aff5d" title="Permalink to this equation">#</a></span>\[\begin{align}
     \sum_{r\in R}A_{fr}x_r =1,\quad &amp;\forall f\in F,\\
     x_r\in\{0,1\},\quad &amp;\forall r\in R,
 \end{align}\]</div>
@@ -657,8 +657,8 @@ Represent the QUBO problem as a Hamiltonian. The goal is to construct a Hamilton
 <section id="map-optimization-problem-to-qubo-form">
 <h3>Map Optimization Problem to QUBO Form<a class="headerlink" href="#map-optimization-problem-to-qubo-form" title="Link to this heading">#</a></h3>
 <p>The first step in mapping the tail-assignment problem is to express it in <strong>Quadratic Unconstrained Binary Optimization (QUBO)</strong> form. This involves a notation change, where the optimization problem is represented as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6a8e5873-6e75-402f-9f8f-99f7dec835d9">
-<span class="eqno">(3)<a class="headerlink" href="#equation-6a8e5873-6e75-402f-9f8f-99f7dec835d9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-816262cd-8534-4945-903e-31fc33816c2f">
+<span class="eqno">(3)<a class="headerlink" href="#equation-816262cd-8534-4945-903e-31fc33816c2f" title="Permalink to this equation">#</a></span>\[\begin{equation}
     f(\vec{x}) = \min_{\vec{x} \in \{0, 1\}^n} \vec{x}^T Q \vec{x},
 \end{equation}\]</div>
 <p>Here:</p>
@@ -673,18 +673,18 @@ Represent the QUBO problem as a Hamiltonian. The goal is to construct a Hamilton
 <section id="step-1-1-transforming-constraints-into-a-cost-function">
 <h4>Step 1.1: Transforming Constraints into a Cost Function<a class="headerlink" href="#step-1-1-transforming-constraints-into-a-cost-function" title="Link to this heading">#</a></h4>
 <p>The tail-assignment problem is defined by the constraint <span class="math notranslate nohighlight">\(A\vec{x} = \vec{1}\)</span>. To transform this into a QUBO cost function, we subtract <span class="math notranslate nohighlight">\(\vec{1}\)</span> from the right-hand side and square (via inner product) the expression:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c67b00d4-e58b-486b-bd1b-3b8183404d85">
-<span class="eqno">(4)<a class="headerlink" href="#equation-c67b00d4-e58b-486b-bd1b-3b8183404d85" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-226dde14-73b0-4fc3-ad5a-ddc680ebb486">
+<span class="eqno">(4)<a class="headerlink" href="#equation-226dde14-73b0-4fc3-ad5a-ddc680ebb486" title="Permalink to this equation">#</a></span>\[\begin{equation}
     (A\vec{x} - \vec{1})^2 = 0
 \end{equation}\]</div>
 <p>This ensures that the cost function evaluates to zero if and only if there exists a binary vector <span class="math notranslate nohighlight">\(\vec{x}\)</span> that satisfy the equation. Thus, the problem can now be expressed as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3ab0d4fb-f86f-4f91-b6ff-3e16093e5ce4">
-<span class="eqno">(5)<a class="headerlink" href="#equation-3ab0d4fb-f86f-4f91-b6ff-3e16093e5ce4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fb7d32fb-e1ce-4383-a311-491da20e4316">
+<span class="eqno">(5)<a class="headerlink" href="#equation-fb7d32fb-e1ce-4383-a311-491da20e4316" title="Permalink to this equation">#</a></span>\[\begin{equation}
     f(\vec{x}) = \min_{\vec{x} \in \{0, 1\}^n} (A\vec{x} - \vec{1})^2
 \end{equation}\]</div>
 <p>Next we expanding the square of the cost function. Doing this we get:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-29c6d986-a445-457b-9b76-7c74373b03a1">
-<span class="eqno">(6)<a class="headerlink" href="#equation-29c6d986-a445-457b-9b76-7c74373b03a1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-86d2c03a-9176-46e1-bbf4-475a68fc4a3a">
+<span class="eqno">(6)<a class="headerlink" href="#equation-86d2c03a-9176-46e1-bbf4-475a68fc4a3a" title="Permalink to this equation">#</a></span>\[\begin{equation}
     (A\vec{x} - \vec{1})^2 = \vec{x}^T A^T A \vec{x} - 2 \vec{1}^T \vec{x} A + \vec{1}^T \vec{1}
 \end{equation}\]</div>
 <p>Since <span class="math notranslate nohighlight">\(\vec{1}^T \vec{1}\)</span> is a constant scalar, it does not affect the optimization and can be ignored. This leaves us with two terms:</p>
@@ -693,32 +693,32 @@ Represent the QUBO problem as a Hamiltonian. The goal is to construct a Hamilton
 <li><p><span class="math notranslate nohighlight">\(-2 \vec{1}^T \vec{x} A\)</span>: This is a linear term, which will contribute to the diagonal of the <span class="math notranslate nohighlight">\(Q\)</span>-matrix.</p></li>
 </ul>
 <p>To incorporate the linear term into the <span class="math notranslate nohighlight">\(Q\)</span>-matrix, we note that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-163d2b43-a0c6-463f-92ac-1c858c778fd3">
-<span class="eqno">(7)<a class="headerlink" href="#equation-163d2b43-a0c6-463f-92ac-1c858c778fd3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0ea072b9-76db-4771-bdfa-cbd9506204a0">
+<span class="eqno">(7)<a class="headerlink" href="#equation-0ea072b9-76db-4771-bdfa-cbd9506204a0" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \vec{x}^T Q \vec{x} = \sum_{i,j} Q_{ij} x_i x_j = \sum_{i=j} Q_{ii} x_i + \sum_{i \neq j} Q_{ij} x_i x_j,
 \end{equation}\]</div>
 <p>where diagonal term is simpy <span class="math notranslate nohighlight">\(\sum_{i} Q_{ii} x_i\)</span>, since <span class="math notranslate nohighlight">\(x_ix_i=x_i\)</span>.</p>
 <p>Thus, the linear term <span class="math notranslate nohighlight">\(-2 \vec{x}^T A^T \vec{1}\)</span> contributes to the diagonal elements of <span class="math notranslate nohighlight">\(Q\)</span>. Specifically:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7375d861-65c0-4ec0-8da0-c1a2e7d60fcd">
-<span class="eqno">(8)<a class="headerlink" href="#equation-7375d861-65c0-4ec0-8da0-c1a2e7d60fcd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ce306516-43a9-4184-a83d-707f3d4fa2b3">
+<span class="eqno">(8)<a class="headerlink" href="#equation-ce306516-43a9-4184-a83d-707f3d4fa2b3" title="Permalink to this equation">#</a></span>\[\begin{equation}
     -2 \vec{x}^T A^T \vec{1} = -2 \sum_{i,j} x_j A_{ji} 
 \end{equation}\]</div>
 <p>This can be written as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4b279294-a78a-42c9-85a5-8d639636f97c">
-<span class="eqno">(9)<a class="headerlink" href="#equation-4b279294-a78a-42c9-85a5-8d639636f97c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ac8ce11e-0872-4825-8396-0b81e29176d1">
+<span class="eqno">(9)<a class="headerlink" href="#equation-ac8ce11e-0872-4825-8396-0b81e29176d1" title="Permalink to this equation">#</a></span>\[\begin{equation}
     -2 \vec{x}^T \mathrm{diag}(A^T\vec{1}) \vec{x},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathrm{diag}(A^T\vec{1})\)</span> is a diagonal matrix with diagonal elements:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2795c8aa-6a46-488c-b933-0d66b18b2939">
-<span class="eqno">(10)<a class="headerlink" href="#equation-2795c8aa-6a46-488c-b933-0d66b18b2939" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0f84061e-d14b-4f0d-a77a-0a7da688e954">
+<span class="eqno">(10)<a class="headerlink" href="#equation-0f84061e-d14b-4f0d-a77a-0a7da688e954" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \mathrm{diag}(A^T\vec{1})_j = \sum_{i} A_{ji}.
 \end{equation}\]</div>
 </section>
 <section id="step-1-3-constructing-the-q-matrix">
 <h4>Step 1.3: Constructing the <span class="math notranslate nohighlight">\(Q\)</span>-Matrix<a class="headerlink" href="#step-1-3-constructing-the-q-matrix" title="Link to this heading">#</a></h4>
 <p>Combining these results, the <span class="math notranslate nohighlight">\(Q\)</span>-matrix is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bae9eee3-267d-42b3-9f46-5d8e4631af22">
-<span class="eqno">(11)<a class="headerlink" href="#equation-bae9eee3-267d-42b3-9f46-5d8e4631af22" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d14e3b9b-8b11-4f43-a8cd-cbe475e54b9c">
+<span class="eqno">(11)<a class="headerlink" href="#equation-d14e3b9b-8b11-4f43-a8cd-cbe475e54b9c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Q = A^T A - 2 \mathrm{diag}(A^T\vec{1}).
 \end{equation}\]</div>
 <p>This <span class="math notranslate nohighlight">\(Q\)</span>-matrix now fully represents the QUBO form of the tail-assignment problem.</p>

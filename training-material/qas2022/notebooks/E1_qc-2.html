@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_lesson.css?v=e9df6548" />
@@ -661,8 +661,8 @@ document.write(`
 </div>
 <p>Now we get a result which is clearly different from classical computing. In the above circuit, we ran the circuit a hundred times (<code class="docutils literal notranslate"><span class="pre">shots=100</span></code>), each time getting a different state as a result of measurement. The <code class="docutils literal notranslate"><span class="pre">counts</span></code> above shows the number of each outcome occurring. The probabilities in the histogram are again just relative occurrences of each outcome, i.e. each basis state.</p>
 <p>Note that the structure of the circuit is similar as before: we operate on each qubit separately. This time, however, the final state <em>before measurement</em> is a linear combination of all basis states.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ed6803c8-692b-4484-893c-194e9472115f">
-<span class="eqno">(1)<a class="headerlink" href="#equation-ed6803c8-692b-4484-893c-194e9472115f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d0a72743-d596-45ed-8947-513e49f54c14">
+<span class="eqno">(1)<a class="headerlink" href="#equation-d0a72743-d596-45ed-8947-513e49f54c14" title="Permalink to this equation">#</a></span>\[\begin{align}
 \ket{\psi} &amp;= \left( H \otimes H \otimes H \right) \ket{000} = H\ket{0} \otimes H\ket{0} \otimes H\ket{0}\\
 &amp;= \frac{\ket{0} + \ket{1}}{\sqrt{2}} \otimes \frac{\ket{0} + \ket{1}}{\sqrt{2}} \otimes \frac{\ket{0} + \ket{1}}{\sqrt{2}} \\
 &amp;= \frac{1}{\sqrt{8}} \left[ \left( \ket{0} + \ket{1} \right) \otimes \left( \ket{0} + \ket{1} \right) \otimes \left( \ket{0} + \ket{1} \right) \right] \\
