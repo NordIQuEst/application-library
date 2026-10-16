@@ -2,6 +2,13 @@
 
 Welcome to the NordIQuEst Application Library.
 
+## Run the examples
+
+Each example folder has its own `requirements.txt`, and the pinned versions differ
+between folders. Create a separate virtual environment per folder and follow the
+**Setup** section on that example's page; it states which Python versions work.
+The `requirements.txt` in the repository root is only for building the docs (below).
+
 ## Build the docs
 
 The documentation for this page uses [sphinx](https://www.sphinx-doc.org/en/master/) and [sphinx book theme](https://sphinx-book-theme.readthedocs.io/en/latest/index.html).
