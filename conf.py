@@ -14,6 +14,7 @@ exclude_patterns = [
     ".DS_Store",
     "jupyter_execute",
     "build",
+    "**/.venv",
 ]
 
 source_suffix = {
