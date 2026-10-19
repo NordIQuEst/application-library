@@ -2,7 +2,7 @@
 
 Welcome to the NordIQuEst Application Library.
 
-## Run the examples
+## Run the hybrid algorithms examples
 
 Each example folder has its own `requirements.txt`, and the pinned versions differ
 between folders. Create a separate virtual environment per folder and follow the
