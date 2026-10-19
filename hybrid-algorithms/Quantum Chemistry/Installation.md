@@ -1,11 +1,11 @@
 # Installation instructions
 
-Requires Python 3.9–3.12 (tested with Python 3.12).
+Requires Python 3.9–3.12 (tested with Python 3.9 and 3.12).
 
 ## Instructions to Install the Necessary Packages in a Python Virtual Environment:
 
 ```
-python3.12 -m venv .venv
+python3.12 -m venv .venv  # or any Python 3.9–3.12
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
