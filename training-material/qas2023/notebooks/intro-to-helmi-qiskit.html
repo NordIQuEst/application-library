@@ -16,30 +16,33 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_lesson.css?v=e9df6548" />
     <link rel="stylesheet" type="text/css" href="../../../_static/term_role_formatting.css?v=4194e21c" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
@@ -50,13 +53,14 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>window.MathJax = {"tex": {"macros": {"vr": "\\vec{r}", "ket": ["\\left| #1 \\right\\rangle", 1], "bra": ["\\left| #1 \\right\\langle", 1], "iprod": ["\\left\\langle #1 | #2 \\right\\rangle", 2]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'training-material/qas2023/notebooks/intro-to-helmi-qiskit';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -64,34 +68,30 @@
     <link rel="prev" title="Tutorial - Quantum chemistry" href="E2_VQE-H2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../../search.html"
       method="get">
@@ -99,7 +99,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -107,15 +106,59 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -124,7 +167,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -154,21 +198,17 @@
     
     
     <img src="../../../_static/nq_logo2.png" class="logo__image only-light" alt="NordIQuEst Application Library - Home"/>
-    <script>document.write(`<img src="../../../_static/nq_logo2.png" class="logo__image only-dark" alt="NordIQuEst Application Library - Home"/>`);</script>
+    <img src="../../../_static/nq_logo2.png" class="logo__image only-dark pst-js-only" alt="NordIQuEst Application Library - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Application Library</span></p>
@@ -327,9 +367,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -427,7 +472,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -441,25 +486,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -481,7 +518,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup"><strong>Setup</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-helmi-with-qiskit"><strong>Using Helmi with Qiskit</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-and-executing-quantum-circuits"><strong>Constructing and executing quantum circuits</strong></a></li>
@@ -552,7 +589,7 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <p>Then connection to the backend is simple! For this we point the <code class="docutils literal notranslate"><span class="pre">IQMProvider</span></code> at what is called the “cocos URL”. The cocos url to access Helmi is provided below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">provider</span> <span class="o">=</span> <span class="n">IQMProvider</span><span class="p">(</span><span class="s2">&quot;https://qc.vtt.fi/cocos&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">provider</span> <span class="o">=</span> <span class="n">IQMProvider</span><span class="p">(</span><span class="s2">"https://qc.vtt.fi/cocos"</span><span class="p">)</span>
 <span class="n">backend</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">get_backend</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -561,9 +598,9 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <p>Now that we have the backend connected to Helmi, let’s print out some information about Helmi!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Native operations: </span><span class="si">{</span><span class="n">backend</span><span class="o">.</span><span class="n">operation_names</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of qubits: </span><span class="si">{</span><span class="n">backend</span><span class="o">.</span><span class="n">num_qubits</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Coupling map: </span><span class="si">{</span><span class="n">backend</span><span class="o">.</span><span class="n">coupling_map</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Native operations: </span><span class="si">{</span><span class="n">backend</span><span class="o">.</span><span class="n">operation_names</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of qubits: </span><span class="si">{</span><span class="n">backend</span><span class="o">.</span><span class="n">num_qubits</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Coupling map: </span><span class="si">{</span><span class="n">backend</span><span class="o">.</span><span class="n">coupling_map</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -578,8 +615,8 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
 <span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">backend</span><span class="o">.</span><span class="n">coupling_map</span><span class="p">)</span>
-<span class="n">node_labels</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;QB</span><span class="si">{</span><span class="n">node</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">}</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">node_labels</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">node_labels</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"QB</span><span class="si">{</span><span class="n">node</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">}</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">node_labels</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s2">"skyblue"</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -591,11 +628,11 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <p>Circuits are constructed and submitted to Helmi using the same methods as with IBM machines. First we construct a Bell pair circuit between 2 qubits. The circuit is then executed on the backend using the <code class="docutils literal notranslate"><span class="pre">execute</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bell pair circuit&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"Bell pair circuit"</span><span class="p">)</span>
 <span class="n">circuit</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">circuit</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">circuit</span><span class="o">.</span><span class="n">measure_all</span><span class="p">()</span>
-<span class="n">circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s2">&quot;mpl&quot;</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s2">"mpl"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -607,8 +644,8 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">job</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">backend</span><span class="p">,</span> <span class="n">shots</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Job ID: </span><span class="si">{</span><span class="n">job</span><span class="o">.</span><span class="n">job_id</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tracking execution of job:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Job ID: </span><span class="si">{</span><span class="n">job</span><span class="o">.</span><span class="n">job_id</span><span class="p">()</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Tracking execution of job:"</span><span class="p">)</span>
 <span class="n">job_monitor</span><span class="p">(</span><span class="n">job</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -631,9 +668,9 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transpiled_circuit</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span>
-    <span class="n">circuit</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">,</span> <span class="n">layout_method</span><span class="o">=</span><span class="s2">&quot;sabre&quot;</span><span class="p">,</span> <span class="n">optimization_level</span><span class="o">=</span><span class="mi">3</span>
+    <span class="n">circuit</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">,</span> <span class="n">layout_method</span><span class="o">=</span><span class="s2">"sabre"</span><span class="p">,</span> <span class="n">optimization_level</span><span class="o">=</span><span class="mi">3</span>
 <span class="p">)</span>
-<span class="n">transpiled_circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;mpl&quot;</span><span class="p">)</span>
+<span class="n">transpiled_circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">"mpl"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -641,8 +678,8 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <p>For the more control, you can also specify the initial layout in both <code class="docutils literal notranslate"><span class="pre">transpile</span></code> and <code class="docutils literal notranslate"><span class="pre">execute</span></code>. For example, Helmi’s topology only allows 2 qubit gates between the central and outer qubits. Therefore we can map the 2 qubit gate to QB3.  For this we make use of the <code class="docutils literal notranslate"><span class="pre">QuantumRegister</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qreg</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;QB&quot;</span><span class="p">)</span>
-<span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qreg</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bell pair circuit&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qreg</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">"QB"</span><span class="p">)</span>
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qreg</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"Bell pair circuit"</span><span class="p">)</span>
 <span class="n">circuit</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">qreg</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">circuit</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="n">qreg</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">qreg</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">circuit</span><span class="o">.</span><span class="n">measure_all</span><span class="p">()</span>
@@ -693,10 +730,10 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp_result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">_get_experiment</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Job ID: &quot;</span><span class="p">,</span> <span class="n">job</span><span class="o">.</span><span class="n">job_id</span><span class="p">())</span>  <span class="c1"># Retrieving the submitted job id</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Job ID: "</span><span class="p">,</span> <span class="n">job</span><span class="o">.</span><span class="n">job_id</span><span class="p">())</span>  <span class="c1"># Retrieving the submitted job id</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">circuits</span><span class="p">)</span>  <span class="c1"># Retrieving the circuit request sent</span>
 <span class="nb">print</span><span class="p">(</span>
-    <span class="s2">&quot;Calibration Set ID: &quot;</span><span class="p">,</span> <span class="n">exp_result</span><span class="o">.</span><span class="n">calibration_set_id</span>
+    <span class="s2">"Calibration Set ID: "</span><span class="p">,</span> <span class="n">exp_result</span><span class="o">.</span><span class="n">calibration_set_id</span>
 <span class="p">)</span>  <span class="c1"># Retrieving the current calibration set id.</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">qubit_mapping</span><span class="p">)</span>  <span class="c1"># Retrieving the qubit mapping</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">shots</span><span class="p">)</span>  <span class="c1"># Retrieving the number of requested shots.</span>
@@ -732,26 +769,26 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">error_profile</span> <span class="o">=</span> <span class="n">fake_backend</span><span class="o">.</span><span class="n">error_profile</span>
-<span class="n">error_profile</span><span class="o">.</span><span class="n">t1s</span><span class="p">[</span><span class="s2">&quot;QB1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">38940.0</span>  <span class="c1"># in ns</span>
-<span class="n">error_profile</span><span class="o">.</span><span class="n">t1s</span><span class="p">[</span><span class="s2">&quot;QB3&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">43322.0</span>  <span class="c1"># in ns</span>
+<span class="n">error_profile</span><span class="o">.</span><span class="n">t1s</span><span class="p">[</span><span class="s2">"QB1"</span><span class="p">]</span> <span class="o">=</span> <span class="mf">38940.0</span>  <span class="c1"># in ns</span>
+<span class="n">error_profile</span><span class="o">.</span><span class="n">t1s</span><span class="p">[</span><span class="s2">"QB3"</span><span class="p">]</span> <span class="o">=</span> <span class="mf">43322.0</span>  <span class="c1"># in ns</span>
 
-<span class="n">error_profile</span><span class="o">.</span><span class="n">t2s</span><span class="p">[</span><span class="s2">&quot;QB1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">24785.0</span>  <span class="c1"># in ns</span>
-<span class="n">error_profile</span><span class="o">.</span><span class="n">t2s</span><span class="p">[</span><span class="s2">&quot;QB3&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">10050.0</span>  <span class="c1"># in ns</span>
+<span class="n">error_profile</span><span class="o">.</span><span class="n">t2s</span><span class="p">[</span><span class="s2">"QB1"</span><span class="p">]</span> <span class="o">=</span> <span class="mf">24785.0</span>  <span class="c1"># in ns</span>
+<span class="n">error_profile</span><span class="o">.</span><span class="n">t2s</span><span class="p">[</span><span class="s2">"QB3"</span><span class="p">]</span> <span class="o">=</span> <span class="mf">10050.0</span>  <span class="c1"># in ns</span>
 
-<span class="n">error_profile</span><span class="o">.</span><span class="n">single_qubit_gate_depolarizing_error_parameters</span><span class="p">[</span><span class="s2">&quot;phased_rx&quot;</span><span class="p">][</span><span class="s2">&quot;QB1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0043</span>
-<span class="n">error_profile</span><span class="o">.</span><span class="n">single_qubit_gate_depolarizing_error_parameters</span><span class="p">[</span><span class="s2">&quot;phased_rx&quot;</span><span class="p">][</span><span class="s2">&quot;QB3&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0022</span>
+<span class="n">error_profile</span><span class="o">.</span><span class="n">single_qubit_gate_depolarizing_error_parameters</span><span class="p">[</span><span class="s2">"phased_rx"</span><span class="p">][</span><span class="s2">"QB1"</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0043</span>
+<span class="n">error_profile</span><span class="o">.</span><span class="n">single_qubit_gate_depolarizing_error_parameters</span><span class="p">[</span><span class="s2">"phased_rx"</span><span class="p">][</span><span class="s2">"QB3"</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0022</span>
 
-<span class="n">error_profile</span><span class="o">.</span><span class="n">two_qubit_gate_depolarizing_error_parameters</span><span class="p">[</span><span class="s2">&quot;cz&quot;</span><span class="p">][(</span><span class="s2">&quot;QB1&quot;</span><span class="p">,</span> <span class="s2">&quot;QB3&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">0.018</span>
+<span class="n">error_profile</span><span class="o">.</span><span class="n">two_qubit_gate_depolarizing_error_parameters</span><span class="p">[</span><span class="s2">"cz"</span><span class="p">][(</span><span class="s2">"QB1"</span><span class="p">,</span> <span class="s2">"QB3"</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">0.018</span>
 
-<span class="n">error_profile</span><span class="o">.</span><span class="n">single_qubit_gate_durations</span><span class="p">[</span><span class="s2">&quot;phased_rx&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">120</span>  <span class="c1"># in ns</span>
-<span class="n">error_profile</span><span class="o">.</span><span class="n">two_qubit_gate_durations</span><span class="p">[</span><span class="s2">&quot;cz&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">120</span>  <span class="c1"># in ns</span>
+<span class="n">error_profile</span><span class="o">.</span><span class="n">single_qubit_gate_durations</span><span class="p">[</span><span class="s2">"phased_rx"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">120</span>  <span class="c1"># in ns</span>
+<span class="n">error_profile</span><span class="o">.</span><span class="n">two_qubit_gate_durations</span><span class="p">[</span><span class="s2">"cz"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">120</span>  <span class="c1"># in ns</span>
 
-<span class="n">error_profile</span><span class="o">.</span><span class="n">readout_errors</span><span class="p">[</span><span class="s2">&quot;QB1&quot;</span><span class="p">][</span><span class="s2">&quot;0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.03375</span>
-<span class="n">error_profile</span><span class="o">.</span><span class="n">readout_errors</span><span class="p">[</span><span class="s2">&quot;QB1&quot;</span><span class="p">][</span><span class="s2">&quot;1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.03865</span>
-<span class="n">error_profile</span><span class="o">.</span><span class="n">readout_errors</span><span class="p">[</span><span class="s2">&quot;QB3&quot;</span><span class="p">][</span><span class="s2">&quot;0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0365</span>
-<span class="n">error_profile</span><span class="o">.</span><span class="n">readout_errors</span><span class="p">[</span><span class="s2">&quot;QB3&quot;</span><span class="p">][</span><span class="s2">&quot;1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.05885</span>
+<span class="n">error_profile</span><span class="o">.</span><span class="n">readout_errors</span><span class="p">[</span><span class="s2">"QB1"</span><span class="p">][</span><span class="s2">"0"</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.03375</span>
+<span class="n">error_profile</span><span class="o">.</span><span class="n">readout_errors</span><span class="p">[</span><span class="s2">"QB1"</span><span class="p">][</span><span class="s2">"1"</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.03865</span>
+<span class="n">error_profile</span><span class="o">.</span><span class="n">readout_errors</span><span class="p">[</span><span class="s2">"QB3"</span><span class="p">][</span><span class="s2">"0"</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0365</span>
+<span class="n">error_profile</span><span class="o">.</span><span class="n">readout_errors</span><span class="p">[</span><span class="s2">"QB3"</span><span class="p">][</span><span class="s2">"1"</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.05885</span>
 
-<span class="n">error_profile</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;fake_helmi&quot;</span>
+<span class="n">error_profile</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">"fake_helmi"</span>
 
 
 <span class="n">helmi_fake_backend</span> <span class="o">=</span> <span class="n">fake_backend</span><span class="o">.</span><span class="n">copy_with_error_profile</span><span class="p">(</span><span class="n">error_profile</span><span class="p">)</span>
@@ -770,7 +807,7 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <span class="n">counts_2</span> <span class="o">=</span> <span class="n">job_2</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
 <span class="n">counts_3</span> <span class="o">=</span> <span class="n">job_3</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
 
-<span class="n">legend</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Helmi&quot;</span><span class="p">,</span> <span class="s2">&quot;FakeAdonis&quot;</span><span class="p">,</span> <span class="s2">&quot;FakeHelmi&quot;</span><span class="p">]</span>
+<span class="n">legend</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Helmi"</span><span class="p">,</span> <span class="s2">"FakeAdonis"</span><span class="p">,</span> <span class="s2">"FakeHelmi"</span><span class="p">]</span>
 <span class="n">plot_histogram</span><span class="p">([</span><span class="n">counts_1</span><span class="p">,</span> <span class="n">counts_2</span><span class="p">,</span> <span class="n">counts_3</span><span class="p">],</span> <span class="n">legend</span><span class="o">=</span><span class="n">legend</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -785,26 +822,26 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">circuits_list</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="n">circuit_1</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bell pair circuit&quot;</span><span class="p">)</span>
+<span class="n">circuit_1</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"Bell pair circuit"</span><span class="p">)</span>
 <span class="n">circuit_1</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">circuit_1</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">circuit_1</span><span class="o">.</span><span class="n">measure_all</span><span class="p">()</span>
 <span class="n">circuits_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">circuit_1</span><span class="p">)</span>
 
-<span class="n">circuit_1</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s2">&quot;mpl&quot;</span><span class="p">)</span>
+<span class="n">circuit_1</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s2">"mpl"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">circuit_2</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Reverse Bell pair circuit&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">circuit_2</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"Reverse Bell pair circuit"</span><span class="p">)</span>
 <span class="n">circuit_2</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">circuit_2</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">circuit_2</span><span class="o">.</span><span class="n">measure_all</span><span class="p">()</span>
 <span class="n">circuits_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">circuit_2</span><span class="p">)</span>
 
-<span class="n">circuit_2</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s2">&quot;mpl&quot;</span><span class="p">)</span>
+<span class="n">circuit_2</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s2">"mpl"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -815,7 +852,7 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <span class="n">job</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span>
     <span class="n">circuits_list</span><span class="p">,</span> <span class="n">backend</span><span class="p">,</span> <span class="n">shots</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">optimization_level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">initial_layout</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tracking execution of job:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Tracking execution of job:"</span><span class="p">)</span>
 <span class="n">job_monitor</span><span class="p">(</span><span class="n">job</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -827,7 +864,7 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <span class="n">result</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
 
 <span class="c1"># Plot histograms</span>
-<span class="n">plot_histogram</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">get_counts</span><span class="p">(),</span> <span class="n">legend</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Circuit 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Circuit 2&quot;</span><span class="p">])</span>
+<span class="n">plot_histogram</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">get_counts</span><span class="p">(),</span> <span class="n">legend</span><span class="o">=</span><span class="p">[</span><span class="s2">"Circuit 1"</span><span class="p">,</span> <span class="s2">"Circuit 2"</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -841,16 +878,16 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pennylane</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qml</span>
 
-<span class="n">provider</span> <span class="o">=</span> <span class="n">IQMProvider</span><span class="p">(</span><span class="s2">&quot;https://qc.vtt.fi/cocos&quot;</span><span class="p">)</span>
+<span class="n">provider</span> <span class="o">=</span> <span class="n">IQMProvider</span><span class="p">(</span><span class="s2">"https://qc.vtt.fi/cocos"</span><span class="p">)</span>
 <span class="n">backend</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">get_backend</span><span class="p">()</span>
 
 
-<span class="n">dev</span> <span class="o">=</span> <span class="n">qml</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;qiskit.remote&quot;</span><span class="p">,</span> <span class="n">wires</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">,</span> <span class="n">shots</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">dev</span> <span class="o">=</span> <span class="n">qml</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"qiskit.remote"</span><span class="p">,</span> <span class="n">wires</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">,</span> <span class="n">shots</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">dev</span><span class="o">.</span><span class="n">capabilities</span><span class="p">())</span>
 
 
-<span class="nd">@qml</span><span class="o">.</span><span class="n">qnode</span><span class="p">(</span><span class="n">dev</span><span class="p">,</span> <span class="n">interface</span><span class="o">=</span><span class="s2">&quot;autograd&quot;</span><span class="p">)</span>
+<span class="nd">@qml</span><span class="o">.</span><span class="n">qnode</span><span class="p">(</span><span class="n">dev</span><span class="p">,</span> <span class="n">interface</span><span class="o">=</span><span class="s2">"autograd"</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">circuit</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
     <span class="n">qml</span><span class="o">.</span><span class="n">RX</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">wires</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">qml</span><span class="o">.</span><span class="n">RY</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">wires</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -877,14 +914,14 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create quantum circuit</span>
-<span class="n">qreg</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;QB&quot;</span><span class="p">)</span>
-<span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qreg</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bell pair circuit&quot;</span><span class="p">)</span>
+<span class="n">qreg</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">"QB"</span><span class="p">)</span>
+<span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qreg</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"Bell pair circuit"</span><span class="p">)</span>
 
 <span class="n">qc</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">qc</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">qc</span><span class="o">.</span><span class="n">measure_all</span><span class="p">()</span>
 
-<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;mpl&quot;</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">"mpl"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -898,7 +935,7 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
     <span class="n">qreg</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># Map the second qubit to QB3</span>
 <span class="p">}</span>
 <span class="n">transpiled_circuit</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">qc</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">,</span> <span class="n">initial_layout</span><span class="o">=</span><span class="n">qubit_mapping</span><span class="p">)</span>
-<span class="n">transpiled_circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;mpl&quot;</span><span class="p">)</span>
+<span class="n">transpiled_circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">"mpl"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -923,9 +960,9 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_bell_pair_circuit</span><span class="p">(</span><span class="n">outer_qubit</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;For a given outer qubit, create a bell pair between the outer qubit and QB3&quot;&quot;&quot;</span>
-    <span class="n">qreg</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;QB&quot;</span><span class="p">)</span>
-    <span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qreg</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bell pair circuit&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""For a given outer qubit, create a bell pair between the outer qubit and QB3"""</span>
+    <span class="n">qreg</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">"QB"</span><span class="p">)</span>
+    <span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qreg</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"Bell pair circuit"</span><span class="p">)</span>
     <span class="n">qc</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">qc</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">qc</span><span class="o">.</span><span class="n">measure_all</span><span class="p">()</span>
@@ -947,14 +984,14 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 
 <span class="c1"># uncomment to draw the circuits</span>
 <span class="c1"># for circuit in bell_pair_circuits:</span>
-<span class="c1">#     display(circuit.draw(&#39;mpl&#39;))</span>
+<span class="c1">#     display(circuit.draw('mpl'))</span>
 
 <span class="n">jobs</span> <span class="o">=</span> <span class="p">[</span><span class="n">execute</span><span class="p">(</span><span class="n">qc</span><span class="p">,</span> <span class="n">backend</span><span class="p">,</span> <span class="n">shots</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">qc</span> <span class="ow">in</span> <span class="n">bell_pair_circuits</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">job</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">jobs</span><span class="p">):</span>
     <span class="n">job_monitor</span><span class="p">(</span><span class="n">job</span><span class="p">)</span>
     <span class="n">counts</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Counts for outer qubit </span><span class="si">{</span><span class="n">outer_qubits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">counts</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Counts for outer qubit </span><span class="si">{</span><span class="n">outer_qubits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">counts</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -963,11 +1000,11 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">success_probability</span><span class="p">(</span><span class="n">counts</span><span class="p">):</span>
     <span class="n">total_shots</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-    <span class="n">success_count</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;00&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;11&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">success_count</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"00"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"11"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">success_count</span> <span class="o">/</span> <span class="n">total_shots</span>
 
 
-<span class="n">outcome_order</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;00&quot;</span><span class="p">,</span> <span class="s2">&quot;01&quot;</span><span class="p">,</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span> <span class="s2">&quot;11&quot;</span><span class="p">]</span>
+<span class="n">outcome_order</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"00"</span><span class="p">,</span> <span class="s2">"01"</span><span class="p">,</span> <span class="s2">"10"</span><span class="p">,</span> <span class="s2">"11"</span><span class="p">]</span>
 <span class="n">success_probabilities</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">success_probability</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span> <span class="k">for</span> <span class="n">counts</span> <span class="ow">in</span> <span class="p">[</span><span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span> <span class="k">for</span> <span class="n">job</span> <span class="ow">in</span> <span class="n">jobs</span><span class="p">]</span>
 <span class="p">]</span>
@@ -980,18 +1017,18 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">sorted_counts</span> <span class="o">=</span> <span class="p">{</span><span class="n">outcome</span><span class="p">:</span> <span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">outcome</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">outcome</span> <span class="ow">in</span> <span class="n">outcome_order</span><span class="p">}</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">sorted_counts</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">sorted_counts</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Counts for outer qubit </span><span class="si">{</span><span class="n">outer_qubits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Measurement Outcomes&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Counts&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Counts for outer qubit </span><span class="si">{</span><span class="n">outer_qubits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Measurement Outcomes"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Counts"</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="c1"># Plot histograms for success probabilities</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">outer_qubits</span><span class="p">,</span> <span class="n">success_probabilities</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Success Probabilities for Each Outer Qubit&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Outer Qubit&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Success Probability&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Success Probabilities for Each Outer Qubit"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Outer Qubit"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Success Probability"</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1012,8 +1049,8 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 
 <span class="n">shots</span> <span class="o">=</span> <span class="mi">1000</span>
 
-<span class="n">qreg</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;QB&quot;</span><span class="p">)</span>
-<span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qreg</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;GHZ circuit&quot;</span><span class="p">)</span>
+<span class="n">qreg</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">"QB"</span><span class="p">)</span>
+<span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qreg</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"GHZ circuit"</span><span class="p">)</span>
 
 <span class="n">qc</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">qc</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># apply CNOT, control=0, target=1</span>
@@ -1022,7 +1059,7 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <span class="n">qc</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">qc</span><span class="o">.</span><span class="n">measure_all</span><span class="p">()</span>
 
-<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;mpl&quot;</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">"mpl"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1032,7 +1069,7 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">qiskit</span><span class="w"> </span><span class="kn">import</span> <span class="n">Aer</span>
 
-<span class="n">simulator</span> <span class="o">=</span> <span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s2">&quot;aer_simulator&quot;</span><span class="p">)</span>
+<span class="n">simulator</span> <span class="o">=</span> <span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s2">"aer_simulator"</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">qc</span><span class="p">,</span> <span class="n">shots</span><span class="o">=</span><span class="n">shots</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
 <span class="n">counts</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>  <span class="c1"># extract statistics from results</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
@@ -1046,9 +1083,9 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transpiled_circuit</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span>
-    <span class="n">qc</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">,</span> <span class="n">layout_method</span><span class="o">=</span><span class="s2">&quot;sabre&quot;</span><span class="p">,</span> <span class="n">optimization_level</span><span class="o">=</span><span class="mi">3</span>
+    <span class="n">qc</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">,</span> <span class="n">layout_method</span><span class="o">=</span><span class="s2">"sabre"</span><span class="p">,</span> <span class="n">optimization_level</span><span class="o">=</span><span class="mi">3</span>
 <span class="p">)</span>
-<span class="n">transpiled_circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;mpl&quot;</span><span class="p">)</span>
+<span class="n">transpiled_circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">"mpl"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1057,9 +1094,9 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transpiled_circuit_simple</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span>
-    <span class="n">qc</span><span class="p">,</span> <span class="n">coupling_map</span><span class="o">=</span><span class="n">backend</span><span class="o">.</span><span class="n">coupling_map</span><span class="p">,</span> <span class="n">layout_method</span><span class="o">=</span><span class="s2">&quot;sabre&quot;</span><span class="p">,</span> <span class="n">optimization_level</span><span class="o">=</span><span class="mi">3</span>
+    <span class="n">qc</span><span class="p">,</span> <span class="n">coupling_map</span><span class="o">=</span><span class="n">backend</span><span class="o">.</span><span class="n">coupling_map</span><span class="p">,</span> <span class="n">layout_method</span><span class="o">=</span><span class="s2">"sabre"</span><span class="p">,</span> <span class="n">optimization_level</span><span class="o">=</span><span class="mi">3</span>
 <span class="p">)</span>
-<span class="n">transpiled_circuit_simple</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;mpl&quot;</span><span class="p">)</span>
+<span class="n">transpiled_circuit_simple</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">"mpl"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1082,8 +1119,8 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create quantum circuit</span>
-<span class="n">qreg</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;QB&quot;</span><span class="p">)</span>
-<span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qreg</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;GHZ circuit&quot;</span><span class="p">)</span>
+<span class="n">qreg</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">"QB"</span><span class="p">)</span>
+<span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qreg</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"GHZ circuit"</span><span class="p">)</span>
 
 <span class="n">qc</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">qc</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -1093,7 +1130,7 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 
 <span class="n">qc</span><span class="o">.</span><span class="n">measure_all</span><span class="p">()</span>
 
-<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;mpl&quot;</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">"mpl"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1101,9 +1138,9 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transpiled_circuit</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span>
-    <span class="n">qc</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">,</span> <span class="n">layout_method</span><span class="o">=</span><span class="s2">&quot;sabre&quot;</span><span class="p">,</span> <span class="n">optimization_level</span><span class="o">=</span><span class="mi">3</span>
+    <span class="n">qc</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">,</span> <span class="n">layout_method</span><span class="o">=</span><span class="s2">"sabre"</span><span class="p">,</span> <span class="n">optimization_level</span><span class="o">=</span><span class="mi">3</span>
 <span class="p">)</span>
-<span class="n">transpiled_circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;mpl&quot;</span><span class="p">)</span>
+<span class="n">transpiled_circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">"mpl"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1137,7 +1174,7 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 
 <span class="n">qubits</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 
-<span class="c1"># The qiskit experiment class generates the &quot;Calibration Circuits&quot;</span>
+<span class="c1"># The qiskit experiment class generates the "Calibration Circuits"</span>
 <span class="c1"># based off the experiment and the qubits input.</span>
 <span class="n">exp</span> <span class="o">=</span> <span class="n">LocalReadoutError</span><span class="p">(</span><span class="n">qubits</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">exp</span><span class="o">.</span><span class="n">circuits</span><span class="p">():</span>
@@ -1149,11 +1186,11 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <p>The experiment can simple be run. Qiskit’s experiments library takes take of the circuit transpilation and execution in addition to analysis. In this case the above circuits are run and then analysed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">provider</span> <span class="o">=</span> <span class="n">IQMProvider</span><span class="p">(</span><span class="s2">&quot;https://qc.vtt.fi/cocos&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">provider</span> <span class="o">=</span> <span class="n">IQMProvider</span><span class="p">(</span><span class="s2">"https://qc.vtt.fi/cocos"</span><span class="p">)</span>
 <span class="n">backend</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">get_backend</span><span class="p">()</span>
 
 <span class="c1"># from qiskit import Aer</span>
-<span class="c1"># backend = Aer.get_backend(&#39;aer_simulator&#39;)</span>
+<span class="c1"># backend = Aer.get_backend('aer_simulator')</span>
 
 <span class="n">exp</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">set_options</span><span class="p">(</span><span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
@@ -1206,12 +1243,12 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">generate_matrices</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-        <span class="n">num_qubits</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;state_label&quot;</span><span class="p">])</span>
+        <span class="n">num_qubits</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"metadata"</span><span class="p">][</span><span class="s2">"state_label"</span><span class="p">])</span>
         <span class="n">counts</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;state_label&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">num_qubits</span><span class="p">:</span>
-                    <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;counts&quot;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="s2">"metadata"</span><span class="p">][</span><span class="s2">"state_label"</span><span class="p">]</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">num_qubits</span><span class="p">:</span>
+                    <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">"counts"</span><span class="p">]</span>
         <span class="n">matrices</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_qubits</span><span class="p">):</span>
             <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
@@ -1230,7 +1267,7 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
         <span class="k">return</span> <span class="n">matrices</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">data</span><span class="p">()</span>
-<span class="n">physical_qubits</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;physical_qubits&quot;</span><span class="p">]</span>
+<span class="n">physical_qubits</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">"physical_qubits"</span><span class="p">]</span>
 <span class="n">matrices</span> <span class="o">=</span> <span class="n">generate_matrices</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">result_mitigator</span> <span class="o">=</span> <span class="n">LocalReadoutMitigator</span><span class="p">(</span><span class="n">matrices</span><span class="p">,</span> <span class="n">qubits</span><span class="o">=</span><span class="n">qubits</span><span class="p">)</span>
 
@@ -1242,7 +1279,7 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <p>And then plotting is done with</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="k">def</span><span class="w"> </span><span class="nf">assignment_matrix_visualization</span><span class="p">(</span><span class="n">assignment_matrix</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Displays a visualization of the assignment matrix compared to the identity&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Displays a visualization of the assignment matrix compared to the identity"""</span>
     <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">ax</span> <span class="o">=</span> <span class="n">get_non_gui_ax</span><span class="p">()</span>
     <span class="n">figure</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
@@ -1251,12 +1288,12 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
     <span class="n">im2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Reds</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">])</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">])</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$|A - I  |$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Prepared State&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Measured State&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="p">[</span><span class="s2">""</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="p">[</span><span class="s2">""</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$|A - I  |$"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Prepared State"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s2">"top"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Measured State"</span><span class="p">)</span>
     <span class="n">figure</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">figure</span>
 
@@ -1301,11 +1338,11 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">legend</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Mitigated Probabilities&quot;</span><span class="p">,</span> <span class="s2">&quot;Unmitigated Probabilities&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">legend</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Mitigated Probabilities"</span><span class="p">,</span> <span class="s2">"Unmitigated Probabilities"</span><span class="p">]</span>
 <span class="n">plot_histogram</span><span class="p">(</span>
     <span class="p">[</span><span class="n">mitigated_probs</span><span class="p">,</span> <span class="n">unmitigated_probs</span><span class="p">],</span>
     <span class="n">legend</span><span class="o">=</span><span class="n">legend</span><span class="p">,</span>
-    <span class="n">sort</span><span class="o">=</span><span class="s2">&quot;value_desc&quot;</span><span class="p">,</span>
+    <span class="n">sort</span><span class="o">=</span><span class="s2">"value_desc"</span><span class="p">,</span>
     <span class="n">bar_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
@@ -1315,8 +1352,8 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
 <p>We can quickly see how the total success probability has increased by counting the number of all 0’s and all 1’s states.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">((</span><span class="n">unmitigated_probs</span><span class="p">[</span><span class="s2">&quot;00000&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">unmitigated_probs</span><span class="p">[</span><span class="s2">&quot;11111&quot;</span><span class="p">]))</span>
-<span class="nb">print</span><span class="p">((</span><span class="n">mitigated_probs</span><span class="p">[</span><span class="s2">&quot;00000&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">mitigated_probs</span><span class="p">[</span><span class="s2">&quot;11111&quot;</span><span class="p">]))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">((</span><span class="n">unmitigated_probs</span><span class="p">[</span><span class="s2">"00000"</span><span class="p">]</span> <span class="o">+</span> <span class="n">unmitigated_probs</span><span class="p">[</span><span class="s2">"11111"</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">mitigated_probs</span><span class="p">[</span><span class="s2">"00000"</span><span class="p">]</span> <span class="o">+</span> <span class="n">mitigated_probs</span><span class="p">[</span><span class="s2">"11111"</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -1373,15 +1410,17 @@ PennyLane-qiskit @ git+https://github.com/NordIQuEst/pennylane-qiskit@support-nu
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup"><strong>Setup</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-helmi-with-qiskit"><strong>Using Helmi with Qiskit</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-and-executing-quantum-circuits"><strong>Constructing and executing quantum circuits</strong></a></li>
@@ -1466,8 +1505,8 @@ By NordIQuEst
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

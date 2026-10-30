@@ -1,0 +1,10 @@
+ipykernel
+matplotlib
+numpy>=1.21.6
+pylatexenc>=2.0
+qiskit==1.1.2
+qiskit-aer>=0.12.0
+quantumreservoirpy==0.2
+reservoirpy<0.4
+scikit-learn
+tqdm
