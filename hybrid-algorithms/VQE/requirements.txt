@@ -1,4 +1,6 @@
-cirq==1.4.0
+cirq-core==1.4.0
 ipykernel==6.29.4
+matplotlib
 pylatexenc
 qiskit==1.1.0
+qiskit-aer
